@@ -10,11 +10,24 @@
         app:title="Min bästa rutt"
         style="@style/ActionBar"
         />
-    <com.google.android.maps.MapView
-        android:id="@+id/mapview"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:enabled="true"
-        android:clickable="true" 
-        android:apiKey="0YNZJeHdJba3MYfIAGNUIy8758FUO-75zkW9BHA" />
+        android:layout_height="fill_parent"
+        >
+        <ListView
+            android:id="@+id/places_list"
+            android:layout_width="200dp"
+            android:layout_height="fill_parent"
+            android:visibility="gone"
+            />
+        <com.google.android.maps.MapView
+            android:id="@+id/mapview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:enabled="true"
+            android:clickable="true" 
+            android:apiKey="0YNZJeHdJba3MYfIAGNUIy8758FUO-75zkW9BHA" />
+    </LinearLayout>
 </LinearLayout>
