@@ -1,8 +1,5 @@
 package se.tidensavtryck;
 
-import com.markupartist.android.widget.ActionBar;
-
-import android.app.Activity;
 import java.util.List;
 
 import se.tidensavtryck.gateway.RouteGateway;
@@ -13,11 +10,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class StartActivity extends ListActivity {
 	/** Called when the activity is first created. */
