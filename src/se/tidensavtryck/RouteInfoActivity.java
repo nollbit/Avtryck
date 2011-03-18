@@ -25,12 +25,8 @@ public class RouteInfoActivity extends Activity {
 
         initActionBar();
         
-        RouteGateway gw = new RouteGateway(getResources().getAssets());
-        List<Route> routes = gw.list();
+        Route route = (Route) getIntent().getParcelableExtra("route");
 
-        Route route = routes.get(0);
-
-        
         TextView title = (TextView) findViewById(R.id.routeInfoTitle);
         title.setText(route.getTitle());
         

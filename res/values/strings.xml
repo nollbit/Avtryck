@@ -5,4 +5,5 @@
     <string name="duration">Tid:</string>
     <string name="duration_unit">minuter</string>
     <string name="start_route">Starta</string>
+    <string name="no_routes">Hittade inga rutter</string>
 </resources>
