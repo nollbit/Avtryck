@@ -1,11 +1,11 @@
 package se.tidensavtryck.model;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 import se.tidensavtryck.User;
-
 import android.location.Location;
 
 public class Route {
@@ -14,17 +14,14 @@ public class Route {
 
 	private String description;
 
-	private Location geoLocation;
-
 	private User creator;
 
 	private LinkedList<Place> places;
 
-	public Route(String title, String description, Location geoLocation,
+	public Route(String title, String description,
 			User creator, LinkedList<Place> places) {
 		this.title = title;
 		this.description = description;
-		this.geoLocation = geoLocation;
 		this.creator = creator;
 		this.places = places;
 	}
@@ -45,12 +42,29 @@ public class Route {
 		return description;
 	}
 
-	public Location getGeoLocation() {
-		return geoLocation;
-	}
-
 	public User getCreator() {
 		return creator;
 	}
 
+	public static Route createKnaustRoute() {
+		// records
+		Record knaustRecord = new Record();
+        List<Record> records = new ArrayList<Record>();
+        records.add(knaustRecord);
+
+        // places
+        Location loc1 = new Location("se.tidensavtryck");
+        loc1.setLatitude(62.382413);
+        loc1.setLongitude(17.337112);
+        Place p1 = new Place("Hotel Knaust", loc1, 50, records);
+        LinkedList<Place> places = new LinkedList<Place>();
+        places.add(p1);
+        
+        // route
+        User creator = new User();
+        Route route = new Route("Knaust-rutten", "En trevlig tur runt kvarteret Knaust med historiska platser och föremål.", creator, places);
+        
+        return route;
+	}
+	
 }
