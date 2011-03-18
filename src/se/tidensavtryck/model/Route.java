@@ -48,7 +48,7 @@ public class Route {
 
 	public static Route createKnaustRoute() {
 		// records
-		Record knaustRecord = new Record(1, "Woppido");
+		Record knaustRecord = new Record();
         List<Record> records = new ArrayList<Record>();
         records.add(knaustRecord);
 
