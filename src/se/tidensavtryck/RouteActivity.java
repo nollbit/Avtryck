@@ -19,8 +19,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class RouteActivity extends MapActivity {
 
@@ -36,12 +43,14 @@ public class RouteActivity extends MapActivity {
         mMapView = (MapView) findViewById(R.id.mapview);
         mMapView.setBuiltInZoomControls(true);
 
+        
         mMapOverlays = mMapView.getOverlays();
 
         RouteGateway gw = new RouteGateway(getResources().getAssets());
         List<Route> routes = gw.list();
 
         Route route = routes.get(0);
+        initListIfExists(route);
         addOverlaysFromRoute(route, mMapOverlays);
 
         final MapController mc = mMapView.getController();
@@ -52,6 +61,16 @@ public class RouteActivity extends MapActivity {
 
             mc.animateTo(point);
             mc.setZoom(16);
+        }
+    }
+
+    private void initListIfExists(Route route) {
+        ListView placesList = (ListView) findViewById(R.id.places_list);
+        // The list only exists in landscape mode.
+        if (placesList != null) {
+            PlaceAdapter placeAdapter =
+                new PlaceAdapter(this, route.getPlaces());
+            placesList.setAdapter(placeAdapter);
         }
     }
 
@@ -93,7 +112,7 @@ public class RouteActivity extends MapActivity {
         // TODO Auto-generated method stub
         return false;
     }
-    
+
     private Drawable createMarker(int index) {
     	Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.marker);
 
@@ -125,5 +144,27 @@ public class RouteActivity extends MapActivity {
 
     	// set the bitmap into the ImageView
     	return new BitmapDrawable(bmOverlay);
+    }
+
+    private class PlaceAdapter extends ArrayAdapter<Place> {
+        private LayoutInflater mInflater;
+
+        public PlaceAdapter(Context context, List<Place> places) {
+            super(context, R.layout.place_list_row, places);
+
+            mInflater = (LayoutInflater) context.getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = mInflater.inflate(R.layout.place_list_row, null);
+
+            Place place = getItem(position);
+            TextView titleView = (TextView) convertView.findViewById(R.id.row_place_title);
+            titleView.setText(place.getTitle());
+
+            return convertView;
+        }
     }
 }
