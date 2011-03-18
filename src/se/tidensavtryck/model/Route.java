@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import se.tidensavtryck.User;
 import android.location.Location;
 
 public class Route {
@@ -16,7 +15,23 @@ public class Route {
 
 	private User creator;
 
-	private LinkedList<Place> places;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
+    public void setPlaces(List<Place> places) {
+        this.places = places;
+    }
+
+    private List<Place> places;
 
 	public Route(String title, String description,
 			User creator, LinkedList<Place> places) {
@@ -65,8 +80,8 @@ public class Route {
         places.add(p1);
         
         // route
-        User creator = new User();
-        Route route = new Route("Knaust-rutten", "En trevlig tur runt kvarteret Knaust med historiska platser och fšremŒl.", creator, places);
+        User creator = new User("Creator");
+        Route route = new Route("Knaust-rutten", "En trevlig tur runt kvarteret Knaust med historiska platser och fï¿½remï¿½l.", creator, places);
         
         return route;
 	}
