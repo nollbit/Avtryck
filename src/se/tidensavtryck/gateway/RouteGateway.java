@@ -46,25 +46,25 @@ public class RouteGateway {
         place4.setDescription("Place 4 description. Very long text to test that the UI really works");
 
         Location loc1 = new Location("se.tidensavtryck");
-        loc1.setLatitude(62.382413);
-        loc1.setLongitude(17.337112);
+        loc1.setLatitude(62.4007043202567);
+        loc1.setLongitude(17.2577392061653);
         place1.setGeoLocation(loc1);
 
         Location loc2 = new Location("se.tidensavtryck");
-        loc2.setLatitude(62.3908789765665);
-        loc2.setLongitude(17.3038633831725);
+        loc2.setLatitude(62.394369903217); 
+        loc2.setLongitude(17.2816450479837);
 
         Location loc3 = new Location("se.tidensavtryck");
-        loc3.setLatitude(62.3908789765665);
-        loc3.setLongitude(17.3038633831725);
+        loc3.setLatitude(62.3897829867526); 
+        loc3.setLongitude(17.2995418371631);
         
         Location loc4 = new Location("se.tidensavtryck");
-        loc4.setLatitude(62.3908789765665);
-        loc4.setLongitude(17.3038633831725);
+        loc4.setLatitude(62.391178326117); 
+        loc4.setLongitude(17.3004228024664);
         
         Location loc5 = new Location("se.tidensavtryck");
-        loc5.setLatitude(62.3908789765665);
-        loc5.setLongitude(17.3038633831725);
+        loc5.setLatitude(62.3900820918969);
+        loc5.setLongitude(17.3091424714359); 
 
         InputStream is = null;
         List<Record> recordList = null;
