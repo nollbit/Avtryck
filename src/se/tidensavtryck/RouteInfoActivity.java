@@ -1,5 +1,8 @@
 package se.tidensavtryck;
 
+import java.util.List;
+
+import se.tidensavtryck.gateway.RouteGateway;
 import se.tidensavtryck.model.Route;
 import android.app.Activity;
 import android.content.Intent;
@@ -16,18 +19,21 @@ public class RouteInfoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        Route dummyRoute = Route.createKnaustRoute();
+        RouteGateway gw = new RouteGateway(getResources().getAssets());
+        List<Route> routes = gw.list();
+
+        Route route = routes.get(0);
         
         setContentView(R.layout.route_info);
         
         TextView title = (TextView) findViewById(R.id.routeInfoTitle);
-        title.setText(dummyRoute.getTitle());
+        title.setText(route.getTitle());
         
         TextView description = (TextView) findViewById(R.id.routeInfoDescription);
-        description.setText(dummyRoute.getDescription());
+        description.setText(route.getDescription());
         
         TextView duration = (TextView) findViewById(R.id.routeDuration);
-        duration.setText(""+dummyRoute.getDurationInMinutes());
+        duration.setText(""+route.getDurationInMinutes());
         
         ImageView thumbnail = (ImageView) findViewById(R.id.routeThumbnail);
         thumbnail.setBackgroundResource(R.drawable.route_thumbnail_example);
