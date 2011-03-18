@@ -1,6 +1,9 @@
 package se.tidensavtryck;
 
+import com.markupartist.android.widget.ActionBar;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +16,7 @@ public class StartActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+
         Button button = (Button) findViewById(R.id.button_route_info);
         button.setOnClickListener(new OnClickListener() {
             
@@ -23,5 +26,17 @@ public class StartActivity extends Activity {
                 startActivity(i);
             }
         });
+    }
+
+    /**
+     * Creates an {@link Intent} for this activity, since this is the home
+     * intent the flag {@link #Intent.FLAG_ACTIVITY_CLEAR_TOP} is also set. 
+     * @param context The Context.
+     * @return An Intent for this activity.
+     */
+    public static Intent createIntent(Context context) {
+        Intent i = new Intent(context, StartActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return i;
     }
 }
