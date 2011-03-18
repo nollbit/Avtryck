@@ -31,19 +31,19 @@ public class RouteGateway {
 
         Place place1 = new Place();
         place1.setTitle("Place 1");
-        place1.setDescription("Place 1 description. Very long text to test that the UI really works");
+        place1.setDescription("Runsten");
         
         Place place2 = new Place();
         place2.setTitle("Place 2");
-        place2.setDescription("Place 2 description. Very long text to test that the UI really works");
+        place2.setDescription("BŒt");
         
         Place place3 = new Place();
         place3.setTitle("Place 3");
-        place3.setDescription("Place 3 description. Very long text to test that the UI really works");
+        place3.setDescription("Hedbergska");
         
         Place place4 = new Place();
         place4.setTitle("Place 4");
-        place4.setDescription("Place 4 description. Very long text to test that the UI really works");
+        place4.setDescription("Stenstaden");
 
         Location loc1 = new Location("se.tidensavtryck");
         loc1.setLatitude(62.4007043202567);
