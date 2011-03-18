@@ -1,4 +1,4 @@
-package se.tidensavtryck;
+package se.tidensavtryck.model;
 
 import android.location.Location;
 

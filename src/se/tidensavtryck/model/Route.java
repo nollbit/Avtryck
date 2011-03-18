@@ -1,8 +1,10 @@
-package se.tidensavtryck;
+package se.tidensavtryck.model;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
+import se.tidensavtryck.User;
 
 import android.location.Location;
 
