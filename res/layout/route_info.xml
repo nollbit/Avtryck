@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res/se.tidensavtryck"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-    <com.markupartist.android.widget.ActionBar
-        android:id="@+id/actionbar"
-        app:title="Route Info"
-        style="@style/ActionBar"
-        />
-	<TextView  
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content" 
-	    android:text="Route info"
-	    />
-	    <Button
-	       android:layout_width="fill_parent" 
-	       android:layout_height="wrap_content" 
-	       android:id="@+id/button_route"
-	       android:text="route"
-	       />
+	xmlns:app="http://schemas.android.com/apk/res/se.tidensavtryck"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<com.markupartist.android.widget.ActionBar
+		android:id="@+id/actionbar" app:title="Route Info" style="@style/ActionBar" />
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Route info"
+		android:id="@+id/routeInfoTitle" android:gravity="center_horizontal"
+		android:textSize="12pt" />
+
+	<TextView android:id="@+id/routeInfoDescription"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:paddingTop="8pt" android:paddingLeft="2pt"
+		android:paddingRight="2pt" android:paddingBottom="4pt" android:text="Route description"></TextView>
+
+	<LinearLayout android:id="@+id/routeDurationLayout"
+		android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingLeft="2pt">
+
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/routeDurationLabel" android:text="@string/duration"></TextView><TextView android:paddingBottom="4pt" android:paddingLeft="2pt"
+			android:layout_height="wrap_content" android:id="@+id/routeDuration"
+			android:paddingRight="2pt" android:layout_width="wrap_content" android:text="duration"></TextView>
+	
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/routeDurationUnit" android:text="@string/duration_unit"></TextView>
+</LinearLayout>
+
+	<ImageView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/routeThumbnail"
+		android:paddingRight="8pt" android:paddingLeft="8pt"
+		android:paddingTop="4pt"
+		android:layout_gravity="center_horizontal" android:paddingBottom="10pt"></ImageView>
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/button_route" android:text="@string/start_route"/>
+
+
+
+
+
 </LinearLayout>

@@ -45,6 +45,10 @@ public class Route {
 	public User getCreator() {
 		return creator;
 	}
+	
+	public int getDurationInMinutes() {
+		return 54;
+	}
 
 	public static Route createKnaustRoute() {
 		// records
