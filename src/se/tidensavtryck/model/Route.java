@@ -100,5 +100,8 @@ public class Route implements Parcelable{
         }
     };
 
-
+    public String toString() {
+    	return title;
+    }
+    
 }

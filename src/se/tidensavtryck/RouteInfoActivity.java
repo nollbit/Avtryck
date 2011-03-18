@@ -19,10 +19,7 @@ public class RouteInfoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        RouteGateway gw = new RouteGateway(getResources().getAssets());
-        List<Route> routes = gw.list();
-
-        Route route = routes.get(0);
+        Route route = (Route) getIntent().getParcelableExtra("route");
         
         setContentView(R.layout.route_info);
         
