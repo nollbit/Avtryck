@@ -12,6 +12,12 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -51,8 +57,10 @@ public class RouteActivity extends MapActivity {
      * @param mapOverlays The overlays.
      */
     private void addOverlaysFromRoute(Route route, List<Overlay> mapOverlays) {
+    	int index = 1;
         for (Place place : route.getPlaces()) {
-            mapOverlays.add(createPlaceOverlay(place));
+            mapOverlays.add(createPlaceOverlay(place, index));
+            index++;
         }
     }
 
@@ -61,8 +69,8 @@ public class RouteActivity extends MapActivity {
      * @param place The place.
      * @return An overlay.
      */
-    private PlaceItemizedOverlay createPlaceOverlay(Place place) {
-        Drawable drawable = getResources().getDrawable(R.drawable.marker);
+    private PlaceItemizedOverlay createPlaceOverlay(Place place, int index) {
+        Drawable drawable = createMarker(index);
         PlaceItemizedOverlay itemizedOverlay = new PlaceItemizedOverlay(drawable, mMapView);
 
         GeoPoint point = new GeoPoint(
@@ -80,5 +88,30 @@ public class RouteActivity extends MapActivity {
     protected boolean isRouteDisplayed() {
         // TODO Auto-generated method stub
         return false;
+    }
+    
+    private Drawable createMarker(int index) {
+    	Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.marker_1);
+
+
+    	// create a mutable bitmap with the same size as the background image
+    	Bitmap bmOverlay = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), 
+    	    Bitmap.Config.ARGB_4444);
+    	// create a canvas on which to draw
+    	Canvas canvas = new Canvas(bmOverlay);
+
+    	Paint paint = new Paint();
+    	paint.setColor(Color.BLACK);
+    	paint.setTextSize(24);
+    	paint.setFlags(Paint.FAKE_BOLD_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
+
+    	// if the background image is defined in main.xml, omit this line
+    	canvas.drawBitmap(mBitmap, 0, 0, null);
+    	// draw the text and the point
+    	canvas.drawPoint(22, 26, paint);
+    	canvas.drawText(""+(index+9), 22+3, 26+3, paint);
+
+    	// set the bitmap into the ImageView
+    	return new BitmapDrawable(bmOverlay);
     }
 }
