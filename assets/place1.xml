@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+<version>1.0</version>
+<totalHits>25412</totalHits>
+<records>
+<record>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ns5="http://kulturarvsdata.se/ksamsok#" xmlns:ns6="http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:Description rdf:about="http://kulturarvsdata.se/raa/fmi/10249700470001">
+<ns5:buildDate>
+2010-11-24
+</ns5:buildDate>
+<ns5:createdDate>
+2005-10-04
+</ns5:createdDate>
+<ns5:dataQuality rdf:resource="http://kulturarvsdata.se/resurser/DataQuality#raw"/>
+<ns5:itemClassName>
+Byggnadsminne
+</ns5:itemClassName>
+<ns5:itemKeyWord>
+Hedbergska huset
+</ns5:itemKeyWord>
+<ns5:itemLabel>
+Byggnadsminne
+</ns5:itemLabel>
+<ns5:itemLicense rdf:resource="http://kulturarvsdata.se/resurser/License#pdmark"/>
+<ns5:itemLicenseUrl rdf:resource="http://creativecommons.org/publicdomain/mark/1.0/"/>
+<ns5:itemType rdf:resource="http://kulturarvsdata.se/resurser/EntityType#site"/>
+<ns5:ksamsokVersion>
+0.99
+</ns5:ksamsokVersion>
+<ns5:lastChangedDate>
+2009-09-11
+</ns5:lastChangedDate>
+<ns5:mediaType>
+text/plain
+</ns5:mediaType>
+<ns5:presentation xmlns:georss="http://www.georss.org/georss" xmlns:pres="http://kulturarvsdata.se/presentation#" rdf:parseType="Literal">
+<pres:item>
+<pres:id>
+10249700470001
+</pres:id>
+<pres:entityUri>
+http://kulturarvsdata.se/raa/fmi/10249700470001
+</pres:entityUri>
+<pres:dataQuality>
+Rådata
+</pres:dataQuality>
+<pres:type>
+Miljö - fornlämning
+</pres:type>
+<pres:idLabel>
+Sundsvall 47:1
+</pres:idLabel>
+<pres:itemLabel>
+Byggnadsminne
+</pres:itemLabel>
+<pres:description>
+Byggnadsminne, Hedbergska huset byggdes på 1890-talet i ;tysk-holländsk renässansstil. Byggnadsminne 22/12 1972Skyddsföreskrifterna omfattar gatufasaden samt trapp- huset ochparadrummen en trappa upp. OBS. Fritexterna är inte kvalitetssäkrade. Information kan saknas eller vara felaktig.
+</pres:description>
+<pres:context>
+<pres:placeLabel>
+Län: Västernorrland, Kommun: Sundsvall, Landskap: Medelpad, Socken: Sundsvall
+</pres:placeLabel>
+</pres:context>
+<georss:where xmlns:gml="http://www.opengis.net/gml">
+<gml:Point srsName="SDO:4326">
+<gml:coordinates cs="," decimal="." ts=" ">
+17.3038633831725,62.3908789765665
+</gml:coordinates>
+</gml:Point>
+</georss:where>
+<pres:representations>
+<pres:representation format="RDF">
+http://kulturarvsdata.se/raa/fmi/rdf/10249700470001
+</pres:representation>
+<pres:representation format="Presentation">
+http://kulturarvsdata.se/raa/fmi/xml/10249700470001
+</pres:representation>
+<pres:representation format="HTML">
+http://kulturarvsdata.se/raa/fmi/html/10249700470001
+</pres:representation>
+</pres:representations>
+<pres:organization>
+Riksantikvarieämbetet
+</pres:organization>
+<pres:organizationShort>
+RAÄ
+</pres:organizationShort>
+<pres:service>
+Fornminnesinformationssystemet (FMIS)
+</pres:service>
+<pres:version>
+0.99
+</pres:version>
+<pres:buildDate>
+2010-11-24
+</pres:buildDate>
+</pres:item>
+</ns5:presentation>
+<ns5:serviceName>
+fmi
+</ns5:serviceName>
+<ns5:serviceOrganization>
+RAÄ
+</ns5:serviceOrganization>
+<ns5:subject rdf:resource="http://kulturarvsdata.se/resurser/Subject#site"/>
+<ns5:url>
+http://www.fmis.raa.se/cocoon/fornsok/search.html?tab=3&amp;page=1&amp;objektid=10249700470001
+</ns5:url>
+<rdf:type rdf:resource="http://kulturarvsdata.se/ksamsok#Entity"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="bNode_0">
+<ns5:number>
+Sundsvall 47:1
+</ns5:number>
+<ns5:type>
+Fornlämningsnummer
+</ns5:type>
+<rdf:type rdf:resource="http://kulturarvsdata.se/ksamsok#ItemNumber"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="bNode_1">
+<ns5:name>
+Byggnadsminne
+</ns5:name>
+<ns5:type>
+Lämningstyp
+</ns5:type>
+<rdf:type rdf:resource="http://kulturarvsdata.se/ksamsok#ItemName"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="bNode_2">
+<ns5:desc>
+Byggnadsminne, Hedbergska huset byggdes på 1890-talet i ;tysk-holländsk renässansstil. Byggnadsminne 22/12 1972Skyddsföreskrifterna omfattar gatufasaden samt trapp- huset ochparadrummen en trappa upp. OBS. Fritexterna är inte kvalitetssäkrade. Information kan saknas eller vara felaktig.
+</ns5:desc>
+<ns5:type>
+Beskrivning
+</ns5:type>
+<rdf:type rdf:resource="http://kulturarvsdata.se/ksamsok#ItemDescription"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="bNode_3">
+<ns5:desc>
+Kyrkogatan 26
+</ns5:desc>
+<ns5:type>
+Orientering
+</ns5:type>
+<rdf:type rdf:resource="http://kulturarvsdata.se/ksamsok#ItemDescription"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="bNode_4">
+<ns5:contextLabel>
+Belägen
+</ns5:contextLabel>
+<ns5:contextType rdf:resource="http://kulturarvsdata.se/resurser/ContextType#exist"/>
+<ns5:coordinates xmlns:gml="http://www.opengis.net/gml" rdf:parseType="Literal">
+<gml:Point srsName="SDO:4326">
+<gml:coordinates cs="," decimal="." ts=" ">
+17.3038690159463,62.3908764905073
+</gml:coordinates>
+</gml:Point>
+</ns5:coordinates>
+<ns5:countyName>
+Västernorrland
+</ns5:countyName>
+<ns5:municipalityName>
+Sundsvall
+</ns5:municipalityName>
+<ns5:parishName>
+Sundsvall
+</ns5:parishName>
+<ns5:provinceName>
+Medelpad
+</ns5:provinceName>
+<ns6:county rdf:resource="http://kulturarvsdata.se/resurser/aukt/geo/county#22"/>
+<ns6:municipality rdf:resource="http://kulturarvsdata.se/resurser/aukt/geo/municipality#22"/>
+<ns6:parish rdf:resource="http://kulturarvsdata.se/resurser/aukt/geo/parish#2497"/>
+<ns6:province rdf:resource="http://kulturarvsdata.se/resurser/aukt/geo/province#Me"/>
+<rdf:type rdf:resource="http://kulturarvsdata.se/ksamsok#Context"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="bNode_5">
+<ns5:lowresSource>
+http://www.fmis.raa.se/fmis/bilder/22/2281/2497/dokument/2497-0047-01-D.jpg
+</ns5:lowresSource>
+<ns5:mediaMotiveWord>
+Inventeringsbokuppslag (1)
+</ns5:mediaMotiveWord>
+<ns5:mediaType>
+image/jpeg
+</ns5:mediaType>
+<ns5:thumbnailSource>
+http://www.fmis.raa.se/fmis/bilder/22/2281/2497/dokument/thumbnail/2497-0047-01-D.jpg
+</ns5:thumbnailSource>
+<rdf:type rdf:resource="http://kulturarvsdata.se/ksamsok#Image"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://kulturarvsdata.se/raa/fmi/10249700470001">
+<ns5:context rdf:nodeID="bNode_4"/>
+<ns5:image rdf:nodeID="bNode_5"/>
+<ns5:itemDescription rdf:nodeID="bNode_2"/>
+<ns5:itemDescription rdf:nodeID="bNode_3"/>
+<ns5:itemName rdf:nodeID="bNode_1"/>
+<ns5:itemNumber rdf:nodeID="bNode_0"/>
+</rdf:Description>
+</rdf:RDF>
+<rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">
+3.7969307899475098
+</rel:score>
+</record>
+</records>
+</result>

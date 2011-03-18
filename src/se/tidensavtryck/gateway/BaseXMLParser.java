@@ -1,10 +1,6 @@
 package se.tidensavtryck.gateway;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 
 public abstract class BaseXMLParser
 {
@@ -26,22 +22,15 @@ public abstract class BaseXMLParser
 	static final String COORDINATES = "coordinates";
 
 	//The URL to the specified service
-	private final URL mServiceUrl;
+	private final InputStream mPlaceMockInputStream;
 
 	/**
 	 * Sets up the service URL for later use
-	 * @param serviceUrl
+	 * @param placeMockInputStream
 	 */
-	protected BaseXMLParser(String serviceUrl)
+	protected BaseXMLParser(InputStream placeMockInputStream)
 	{
-		try
-		{
-			this.mServiceUrl = new URL(serviceUrl);
-		}
-		catch (MalformedURLException e)
-		{
-			throw new RuntimeException(e);
-		}
+        this.mPlaceMockInputStream = placeMockInputStream;
 	}
 
 	/**
@@ -50,18 +39,6 @@ public abstract class BaseXMLParser
 	 */
 	protected InputStream getInputStream()
 	{
-		InputStream in = null;
-		try
-		{
-			URLConnection connection = mServiceUrl.openConnection();
-			connection.setConnectTimeout(30000);
-			connection.setReadTimeout(30000);
-			in = connection.getInputStream();
-		}
-		catch (IOException e)
-		{
-			//throw new RuntimeException(e);
-		}
-		return in;
+        return this.mPlaceMockInputStream;
 	}
 }
