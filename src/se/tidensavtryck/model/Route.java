@@ -1,8 +1,10 @@
-package se.tidensavtryck;
+package se.tidensavtryck.model;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
+import se.tidensavtryck.User;
 
 import android.location.Location;
 
@@ -25,6 +27,10 @@ public class Route {
 		this.geoLocation = geoLocation;
 		this.creator = creator;
 		this.places = places;
+	}
+
+	public Route() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public List<Place> getPlaces() {
