@@ -2,6 +2,8 @@ package se.tidensavtryck;
 
 import java.util.List;
 
+import com.markupartist.android.widget.ActionBar;
+
 import se.tidensavtryck.gateway.RouteGateway;
 import se.tidensavtryck.model.Route;
 import android.app.Activity;
@@ -18,11 +20,13 @@ public class RouteInfoActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.route_info);
+
+        initActionBar();
         
         Route route = (Route) getIntent().getParcelableExtra("route");
-        
-        setContentView(R.layout.route_info);
-        
+
         TextView title = (TextView) findViewById(R.id.routeInfoTitle);
         title.setText(route.getTitle());
         
@@ -44,5 +48,12 @@ public class RouteInfoActivity extends Activity {
                 startActivity(i);
             }
         });
+    }
+
+    private void initActionBar() {
+        ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+        actionBar.setHomeAction(new ActionBar.IntentAction(
+                this, StartActivity.createIntent(this),
+                R.drawable.ic_actionbar_home_default));
     }
 }

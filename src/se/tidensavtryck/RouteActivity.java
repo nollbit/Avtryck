@@ -12,6 +12,7 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
+import com.markupartist.android.widget.ActionBar;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,6 +45,8 @@ public class RouteActivity extends MapActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.route);
 
+        initActionBar();
+        
         mMapView = (MapView) findViewById(R.id.mapview);
         mMapView.setBuiltInZoomControls(true);
 
@@ -68,6 +71,13 @@ public class RouteActivity extends MapActivity {
             mc.animateTo(point);
             mc.setZoom(16);
         }
+    }
+
+    private void initActionBar() {
+        ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+        actionBar.setHomeAction(new ActionBar.IntentAction(
+                this, StartActivity.createIntent(this),
+                R.drawable.ic_actionbar_home_default));
     }
 
     private void initList(Route route) {

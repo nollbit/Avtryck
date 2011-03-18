@@ -1,5 +1,8 @@
 package se.tidensavtryck;
 
+import com.markupartist.android.widget.ActionBar;
+
+import android.app.Activity;
 import java.util.List;
 
 import se.tidensavtryck.gateway.RouteGateway;
@@ -70,5 +73,18 @@ public class StartActivity extends ListActivity {
 //
 //            return convertView;
 //        }
+
+    }
+
+    /**
+     * Creates an {@link Intent} for this activity, since this is the home
+     * intent the flag {@link #Intent.FLAG_ACTIVITY_CLEAR_TOP} is also set. 
+     * @param context The Context.
+     * @return An Intent for this activity.
+     */
+    public static Intent createIntent(Context context) {
+        Intent i = new Intent(context, StartActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return i;
     }
 }
