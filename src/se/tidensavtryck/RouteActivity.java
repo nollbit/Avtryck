@@ -20,8 +20,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +35,8 @@ public class RouteActivity extends MapActivity {
 
     MapView mMapView;
     List<Overlay> mMapOverlays;
+    Route mRoute;
+    ListView mPlacesList;
 
     /** Called when the activity is first created. */
     @Override
@@ -50,7 +54,9 @@ public class RouteActivity extends MapActivity {
         List<Route> routes = gw.list();
 
         Route route = routes.get(0);
-        initListIfExists(route);
+        mRoute = route;
+
+        initList(route);
         addOverlaysFromRoute(route, mMapOverlays);
 
         final MapController mc = mMapView.getController();
@@ -64,13 +70,13 @@ public class RouteActivity extends MapActivity {
         }
     }
 
-    private void initListIfExists(Route route) {
-        ListView placesList = (ListView) findViewById(R.id.places_list);
+    private void initList(Route route) {
+        mPlacesList = (ListView) findViewById(R.id.places_list);
         // The list only exists in landscape mode.
-        if (placesList != null) {
+        if (mPlacesList != null) {
             PlaceAdapter placeAdapter =
                 new PlaceAdapter(this, route.getPlaces());
-            placesList.setAdapter(placeAdapter);
+            mPlacesList.setAdapter(placeAdapter);
         }
     }
 
@@ -145,6 +151,22 @@ public class RouteActivity extends MapActivity {
     	return new BitmapDrawable(bmOverlay);
     }
 
+    /**
+     * 
+     * @see android.app.Activity#onConfigurationChanged(android.content.res.Configuration)
+     */
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        if (newConfig.orientation == newConfig.ORIENTATION_LANDSCAPE) {
+            Log.d("Route", "is landscape");
+            mPlacesList.setVisibility(View.VISIBLE);
+        } else {
+            mPlacesList.setVisibility(View.GONE);
+        }
+
+        super.onConfigurationChanged(newConfig);
+    }
+
     private class PlaceAdapter extends ArrayAdapter<Place> {
         private LayoutInflater mInflater;
 
@@ -161,7 +183,7 @@ public class RouteActivity extends MapActivity {
 
             Place place = getItem(position);
             TextView titleView = (TextView) convertView.findViewById(R.id.row_place_title);
-            titleView.setText(place.getTitle());
+            titleView.setText(String.format("%s %s", position + 1, place.getTitle()));
 
             return convertView;
         }
