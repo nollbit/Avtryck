@@ -10,8 +10,8 @@ import java.util.List;
 
 public class XMLPull extends BaseXMLParser {
 
-    public XMLPull(String serviceUrl) {
-        super(serviceUrl);
+    public XMLPull(InputStream placeMockInputStream) {
+        super(placeMockInputStream);
     }
 
     /**
