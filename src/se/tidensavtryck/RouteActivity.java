@@ -2,6 +2,7 @@ package se.tidensavtryck;
 
 import java.util.List;
 
+import se.tidensavtryck.gateway.RouteGateway;
 import se.tidensavtryck.model.Place;
 import se.tidensavtryck.model.Route;
 
@@ -37,7 +38,10 @@ public class RouteActivity extends MapActivity {
 
         mMapOverlays = mMapView.getOverlays();
 
-        Route route = Route.createKnaustRoute();
+        RouteGateway gw = new RouteGateway(getResources().getAssets());
+        List<Route> routes = gw.list();
+
+        Route route = routes.get(0);
         addOverlaysFromRoute(route, mMapOverlays);
 
         final MapController mc = mMapView.getController();
