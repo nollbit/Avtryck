@@ -7,12 +7,14 @@
     >
     <com.markupartist.android.widget.ActionBar
         android:id="@+id/actionbar"
-        app:title="Route"
+        app:title="Min bästa rutt"
         style="@style/ActionBar"
         />
-	<TextView  
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content" 
-	    android:text="Route"
-	    />
+    <com.google.android.maps.MapView
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:enabled="true"
+        android:clickable="true" 
+        android:apiKey="0YNZJeHdJba3MYfIAGNUIy8758FUO-75zkW9BHA" />
 </LinearLayout>
