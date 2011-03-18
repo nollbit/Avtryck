@@ -1,14 +1,15 @@
 package se.tidensavtryck.model;
 
 import android.location.Location;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Record {
+public class Record implements Parcelable {
     private String mTitle = "-";
-    private String mThumbnailURL;
-    private String mThumbnailUrl = null;
+    private String mThumbnailURL = "";
     private List<String> mImages = new ArrayList<String>();
     private String mDescription;
     private String mType;
@@ -20,7 +21,22 @@ public class Record {
     private Location mCoordinates;
 
     public Record() {
-        //To change body of created methods use File | Settings | File Templates.
+    }
+
+    public Record(Parcel parcel) {
+        mTitle = parcel.readString();
+        mThumbnailURL = parcel.readString();
+        mDescription = parcel.readString();
+        mType = parcel.readString();
+        mIdLabel = parcel.readString();
+        mTimeLabel = parcel.readString();
+        mPlaceLabel = parcel.readString();
+        mOrganization = parcel.readString();
+        mLink = parcel.readString();
+        mCoordinates = parcel.readParcelable(null);
+
+        mImages = new ArrayList<String>();
+        parcel.readStringList(mImages);
     }
 
     /**
@@ -43,18 +59,6 @@ public class Record {
 
     public void setThumbnailURL(String thumbnailURL) {
         this.mThumbnailURL = thumbnailURL.trim();
-        setThumbnail(thumbnailURL.trim());
-    }
-
-    /**
-     * Gets and sets the items thumbnail.
-     */
-    public String getThumbnail() {
-        return mThumbnailUrl;
-    }
-
-    private void setThumbnail(String thumbnailURL) {
-        this.mThumbnailUrl = thumbnailURL;
     }
 
     /**
@@ -169,4 +173,34 @@ public class Record {
 
         this.mCoordinates = location;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mTitle);
+        dest.writeString(mThumbnailURL);
+        dest.writeString(mDescription);
+        dest.writeString(mType);
+        dest.writeString(mIdLabel);
+        dest.writeString(mTimeLabel);
+        dest.writeString(mPlaceLabel);
+        dest.writeString(mOrganization);
+        dest.writeString(mLink);
+        dest.writeParcelable(mCoordinates, 0);
+        dest.writeStringList(mImages);
+    }
+
+    public static final Parcelable.Creator<Record> CREATOR = new Parcelable.Creator<Record>() {
+        public Record createFromParcel(Parcel parcel) {
+            return new Record(parcel);
+        }
+
+        public Record[] newArray(int size) {
+            return new Record[size];
+        }
+    };
 }
