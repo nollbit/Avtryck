@@ -29,18 +29,42 @@ public class RouteGateway {
         route.setCreator(user);
         route.setDescription("My Best Description. Very long text to test that the UI really works");
 
-        Place place = new Place();
-        place.setTitle("Place 1");
-        place.setDescription("Place 1 description. Very long text to test that the UI really works");
+        Place place1 = new Place();
+        place1.setTitle("Place 1");
+        place1.setDescription("Place 1 description. Very long text to test that the UI really works");
+        
+        Place place2 = new Place();
+        place2.setTitle("Place 2");
+        place2.setDescription("Place 2 description. Very long text to test that the UI really works");
+        
+        Place place3 = new Place();
+        place3.setTitle("Place 3");
+        place3.setDescription("Place 3 description. Very long text to test that the UI really works");
+        
+        Place place4 = new Place();
+        place4.setTitle("Place 4");
+        place4.setDescription("Place 4 description. Very long text to test that the UI really works");
 
         Location loc1 = new Location("se.tidensavtryck");
-        loc1.setLatitude(62.382413);
-        loc1.setLongitude(17.337112);
-        place.setGeoLocation(loc1);
+        loc1.setLatitude(62.4007043202567);
+        loc1.setLongitude(17.2577392061653);
+        place1.setGeoLocation(loc1);
 
         Location loc2 = new Location("se.tidensavtryck");
-        loc2.setLatitude(62.3908789765665);
-        loc2.setLongitude(17.3038633831725);
+        loc2.setLatitude(62.394369903217); 
+        loc2.setLongitude(17.2816450479837);
+
+        Location loc3 = new Location("se.tidensavtryck");
+        loc3.setLatitude(62.3897829867526); 
+        loc3.setLongitude(17.2995418371631);
+        
+        Location loc4 = new Location("se.tidensavtryck");
+        loc4.setLatitude(62.391178326117); 
+        loc4.setLongitude(17.3004228024664);
+        
+        Location loc5 = new Location("se.tidensavtryck");
+        loc5.setLatitude(62.3900820918969);
+        loc5.setLongitude(17.3091424714359); 
 
         InputStream is = null;
         List<Record> recordList = null;
@@ -52,11 +76,11 @@ public class RouteGateway {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
-        place.setRecords(recordList);
+        place1.setRecords(recordList);
         Place p2 = new Place("Bla bla bla plats", loc2, 50, recordList);
 
         List<Place> places = new LinkedList<Place>();
-        places.add(place);
+        places.add(place1);
         places.add(p2);
 
         route.setPlaces(places);
