@@ -29,6 +29,10 @@ public class Route {
 		this.places = places;
 	}
 
+	public Route() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public List<Place> getPlaces() {
 		return Collections.unmodifiableList(places);
 	}
