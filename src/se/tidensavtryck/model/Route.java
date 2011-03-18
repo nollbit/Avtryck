@@ -18,6 +18,8 @@ public class Route implements Parcelable{
 
 	private User creator;
 
+    private List<Place> places;
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -33,8 +35,6 @@ public class Route implements Parcelable{
     public void setPlaces(List<Place> places) {
         this.places = places;
     }
-
-    private List<Place> places;
 
 	public Route(String title, String description,
 			User creator, LinkedList<Place> places) {
@@ -52,6 +52,8 @@ public class Route implements Parcelable{
 		this.title = parcel.readString();
 		this.description = parcel.readString();
 		this.creator = parcel.readParcelable(null);
+		this.places = new ArrayList<Place>();
+		parcel.readTypedList(this.places, Place.CREATOR);
 	}
 
 	public List<Place> getPlaces() {
@@ -85,6 +87,7 @@ public class Route implements Parcelable{
 		dest.writeString(this.title);
 		dest.writeString(this.description);
 		dest.writeParcelable(this.creator, 0);
+		dest.writeTypedList(this.places);
 	}
 
     public static final Creator<Route> CREATOR = new Creator<Route>() {
