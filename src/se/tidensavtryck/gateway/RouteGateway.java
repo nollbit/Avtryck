@@ -38,6 +38,10 @@ public class RouteGateway {
         loc1.setLongitude(17.337112);
         place.setGeoLocation(loc1);
 
+        Location loc2 = new Location("se.tidensavtryck");
+        loc2.setLatitude(62.3908789765665);
+        loc2.setLongitude(17.3038633831725);
+
         InputStream is = null;
         List<Record> recordList = null;
         try {
@@ -49,9 +53,11 @@ public class RouteGateway {
         }
 
         place.setRecords(recordList);
+        Place p2 = new Place("Bla bla bla plats", loc2, 50, recordList);
 
         List<Place> places = new LinkedList<Place>();
         places.add(place);
+        places.add(p2);
 
         route.setPlaces(places);
         routeList.add(route);
