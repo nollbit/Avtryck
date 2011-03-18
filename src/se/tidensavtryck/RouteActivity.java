@@ -95,9 +95,12 @@ public class RouteActivity extends MapActivity {
     }
     
     private Drawable createMarker(int index) {
-    	Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.marker_1);
+    	Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.marker);
 
-
+    	int size = (index < 10 ? 24 : 20);
+    	int x = (index < 10 ? 24 : 21);
+    	int y = (index < 10 ? 29 : 26);
+    	
     	// create a mutable bitmap with the same size as the background image
     	Bitmap bmOverlay = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), 
     	    Bitmap.Config.ARGB_4444);
@@ -106,14 +109,19 @@ public class RouteActivity extends MapActivity {
 
     	Paint paint = new Paint();
     	paint.setColor(Color.BLACK);
-    	paint.setTextSize(24);
+    	paint.setTextSize(size);
     	paint.setFlags(Paint.FAKE_BOLD_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
 
     	// if the background image is defined in main.xml, omit this line
     	canvas.drawBitmap(mBitmap, 0, 0, null);
     	// draw the text and the point
-    	canvas.drawPoint(22, 26, paint);
-    	canvas.drawText(""+(index+9), 22+3, 26+3, paint);
+
+    	canvas.drawText(""+index, x, y, paint);
+    	
+    	// two digit
+    	// 21, 26, size 20
+    	// single digit
+    	// 23, 29, size 24
 
     	// set the bitmap into the ImageView
     	return new BitmapDrawable(bmOverlay);
