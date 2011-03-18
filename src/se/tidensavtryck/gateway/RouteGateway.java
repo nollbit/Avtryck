@@ -35,7 +35,7 @@ public class RouteGateway {
         
         Place place2 = new Place();
         place2.setTitle("Place 2");
-        place2.setDescription("BŒt");
+        place2.setDescription("BÃ¥t");
         
         Place place3 = new Place();
         place3.setTitle("Place 3");
