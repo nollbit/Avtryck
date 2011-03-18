@@ -51,7 +51,7 @@ public class Route implements Parcelable{
 	public Route(Parcel parcel) {
 		this.title = parcel.readString();
 		this.description = parcel.readString();
-		this.creator = parcel.readParcelable(null);
+		//this.creator = parcel.readParcelable(null);
 		this.places = new ArrayList<Place>();
 		parcel.readTypedList(this.places, Place.CREATOR);
 	}
@@ -86,7 +86,7 @@ public class Route implements Parcelable{
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeString(this.title);
 		dest.writeString(this.description);
-		dest.writeParcelable(this.creator, 0);
+		//dest.writeParcelable(this.creator, 0);
 		dest.writeTypedList(this.places);
 	}
 
@@ -100,5 +100,8 @@ public class Route implements Parcelable{
         }
     };
 
-
+    public String toString() {
+    	return title;
+    }
+    
 }
