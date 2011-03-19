@@ -26,6 +26,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RouteActivity extends MapActivity {
 
@@ -34,6 +35,7 @@ public class RouteActivity extends MapActivity {
     Route mRoute;
     ListView mPlacesList;
 	private PlaceItemizedOverlay itemizedOverlay;
+	private MyLocationOverlay mMyLocationOverlay;
 
     /** Called when the activity is first created. */
     @Override
@@ -43,7 +45,7 @@ public class RouteActivity extends MapActivity {
 
         mRoute = (Route) getIntent().getParcelableExtra("route");
         initActionBar();
-        
+
         mMapView = (MapView) findViewById(R.id.mapview);
         mMapView.setBuiltInZoomControls(true);
         
@@ -57,9 +59,12 @@ public class RouteActivity extends MapActivity {
             index++;
         }
         mMapOverlays.add(itemizedOverlay);
+        myLocationOverlay(mMapView);
 
         final MapController mc = mMapView.getController();
 
+        // TODO: This must be refactored, cause it expect that the first overlay
+        // is a PlaceItemizedOverlay which might not be true.
         if (mMapOverlays.size() > 0) {
             PlaceItemizedOverlay first = (PlaceItemizedOverlay) mMapOverlays.get(0);
             GeoPoint point = first.getCenter();
@@ -69,11 +74,46 @@ public class RouteActivity extends MapActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mMyLocationOverlay != null) {
+            mMyLocationOverlay.enableCompass();
+            mMyLocationOverlay.enableMyLocation();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        disableMyLocation();
+    }
+
+    private void disableMyLocation() {
+        if (mMyLocationOverlay != null) {
+            mMyLocationOverlay.disableCompass();
+            mMyLocationOverlay.disableMyLocation();
+        }
+    }
+
+    private void myLocationOverlay(MapView mapView) {
+        mMyLocationOverlay = new MyLocationOverlay(this, mapView);
+        if (mMyLocationOverlay.isMyLocationEnabled()) {
+            mMyLocationOverlay.enableMyLocation();
+        }
+        if (mMyLocationOverlay.isCompassEnabled()) {
+            mMyLocationOverlay.enableCompass();
+        }
+        mapView.getOverlays().add(mMyLocationOverlay);
+    }
+
     private void initActionBar() {
         ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
         actionBar.setHomeAction(new ActionBar.IntentAction(
                 this, StartActivity.createIntent(this),
                 R.drawable.ic_actionbar_home_default));
+        actionBar.addAction(new MyLocationActionItem());
     }
 
     private void initList(Route route) {
@@ -178,6 +218,29 @@ public class RouteActivity extends MapActivity {
             placeNumber.setText(String.format("%s", position + 1));
             
             return convertView;
+        }
+    }
+
+    private class MyLocationActionItem implements ActionBar.Action {
+
+        @Override
+        public int getDrawable() {
+            return R.drawable.ic_actionbar_my_location;
+        }
+
+        @Override
+        public void performAction(View view) {
+            if (mMyLocationOverlay.isMyLocationEnabled()) {
+                GeoPoint myLocation = mMyLocationOverlay.getMyLocation();
+                if (myLocation != null) {
+                    final MapController mc = mMapView.getController();
+                    mc.animateTo(myLocation);
+                }
+            } else {
+                Toast.makeText(RouteActivity.this,
+                        "Positionering inte tillgänglig.",
+                        Toast.LENGTH_LONG).show();
+            }
         }
     }
 }
