@@ -8,7 +8,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -66,30 +68,27 @@ public class RouteInfoActivity extends Activity {
     }
     
     private class CommentsAdapter extends ArrayAdapter<Comment> {
-//        private LayoutInflater mInflater;
+        private LayoutInflater mInflater;
 
         public CommentsAdapter(Context context, List<Comment> comments) {
             super(context, android.R.layout.simple_list_item_1, comments);
 
-//            mInflater = (LayoutInflater) context.getSystemService(
-//                    Context.LAYOUT_INFLATER_SERVICE);
+            mInflater = (LayoutInflater) context.getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE);
         }
 
-        
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            convertView = mInflater.inflate(R.layout.route_list_row, null);
-//
-//            Route route = getItem(position);
-//            TextView title = (TextView) convertView.findViewById(R.id.routeTitle);
-//            title.setText(route.getTitle());
-//            TextView duration = (TextView) convertView.findViewById(R.id.routeDuration);
-//            duration.setText(""+route.getDurationInMinutes());
-//            
-//            ImageView likes = (ImageView) convertView.findViewById(R.id.routeLikes);
-//            likes.setBackgroundDrawable(createLikes(route.getLikes()));
-//            return convertView;
-//        }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = mInflater.inflate(R.layout.comment_list_row, null);
+
+            Comment comment = getItem(position);
+            TextView commentText = (TextView) convertView.findViewById(R.id.commentText);
+            commentText.setText(comment.getComment());
+            
+            ImageView avatar = (ImageView) convertView.findViewById(R.id.avatarView);
+            avatar.setBackgroundResource(R.drawable.avatar_example);
+            return convertView;
+        }
 
     }
 }
