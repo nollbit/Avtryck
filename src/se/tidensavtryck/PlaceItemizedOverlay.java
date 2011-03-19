@@ -2,8 +2,6 @@ package se.tidensavtryck;
 
 import java.util.ArrayList;
 
-import se.tidensavtryck.model.Route;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -19,17 +17,19 @@ public class PlaceItemizedOverlay  extends BalloonItemizedOverlay<OverlayItem> {
     private Context c;
 	private final Context context;
     
-    public PlaceItemizedOverlay(Context context, Drawable defaultMarker, MapView mapView) {
-        super(boundCenter(defaultMarker), mapView);
+    public PlaceItemizedOverlay(Context context, MapView mapView) {
+        super(boundCenter(context.getResources().getDrawable(R.drawable.marker)), mapView);
 		this.context = context;
         c = mapView.getContext();
     }
 
-    public void addOverlay(OverlayItem overlay) {
+    public void addOverlay(OverlayItem overlay, Drawable drawable) {
+    	boundCenter(drawable);
+    	overlay.setMarker(drawable);
         m_overlays.add(overlay);
         populate();
     }
-
+    
     @Override
     protected OverlayItem createItem(int i) {
         return m_overlays.get(i);
