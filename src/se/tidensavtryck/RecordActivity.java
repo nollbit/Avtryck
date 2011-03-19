@@ -122,7 +122,7 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
         intent.putExtra(Intent.EXTRA_SUBJECT,
                 String.format("%s", record.getTitle()));
         intent.putExtra(Intent.EXTRA_TEXT,
-                String.format("%s #appening via Avtryck.", record.getDescription()));
+                String.format("%s %s via Avtryck. #appening", record.getTitle(), record.getLink()));
 
         return intent;
     }
