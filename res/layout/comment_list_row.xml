@@ -2,7 +2,7 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent" android:orientation="horizontal">
-<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/avatarView"></ImageView>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/commentText" android:text="Comment"></TextView>
+  android:layout_height="fill_parent" android:orientation="horizontal" android:paddingLeft="5dp" android:paddingBottom="2dp" android:paddingTop="2dp">
+<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/avatarView" android:paddingRight="4dp"></ImageView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/commentText" android:text="Comment" android:padding="2dp"></TextView>
 </LinearLayout>
