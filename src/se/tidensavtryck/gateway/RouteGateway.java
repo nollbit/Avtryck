@@ -10,11 +10,10 @@ import java.util.Map;
 
 import android.content.res.AssetManager;
 import android.location.Location;
-import com.google.android.maps.GeoPoint;
-import se.tidensavtryck.model.User;
 import se.tidensavtryck.model.Place;
 import se.tidensavtryck.model.Record;
 import se.tidensavtryck.model.Route;
+import se.tidensavtryck.model.User;
 
 public class RouteGateway {
     private AssetManager mAssetManager;
@@ -28,8 +27,9 @@ public class RouteGateway {
 
         Route route = new Route();
         route.setTitle("En kort rundtur i Sundsvall");
-        User user = new User("Me");
-        route.setCreator(user);
+        User user = new User();
+        user.setUserName("me");
+        route.setCreatedBy(user);
         route.setDescription("Information hämtad från K-samsök.");
 
         Place place1 = new Place();
