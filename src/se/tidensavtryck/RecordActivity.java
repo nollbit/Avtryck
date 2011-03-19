@@ -4,6 +4,7 @@ import se.tidensavtryck.model.Place;
 import se.tidensavtryck.model.Record;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
     private LayoutInflater mInflater;
     private LinearLayout mImageHolder;
     private ThumbnailOnClickListener mThumbnailOnClickListener;
+    private ActionBar mActionBar;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,8 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
         mPlace = (Place) getIntent().getParcelableExtra("place");
         mRecordIndex = 0;
 
-        initActionBar();
+        mActionBar = initActionBar();
+        mActionBar.setTitle(mPlace.getTitle());
 
         mImageHolder = (LinearLayout) findViewById(R.id.thumbnail_holder);
         mThumbnailOnClickListener = new ThumbnailOnClickListener();
@@ -63,12 +66,6 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
         BindResult result = ImageLoader.get(this).bind(imageView, record.getThumbnailURL(), this);
         if(result == ImageLoader.BindResult.LOADING) {
             imageView.setVisibility(ImageView.GONE);
-            imageView.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(RecordActivity.this, "click", Toast.LENGTH_SHORT).show();
-                }
-            });
         }
         view.setTag(record);
         view.setOnClickListener(mThumbnailOnClickListener);
@@ -76,11 +73,10 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
         return view;
     }
     
-    private void initActionBar() {
+    private ActionBar initActionBar() {
         ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
         actionBar.setTitle(String.format("%1$d av %2$d", mRecordIndex+1, mPlace.getRecords().size()));
         actionBar.setDisplayHomeAsUpEnabled(true);
-
         actionBar.setHomeAction(new ActionBar.Action() {
 
             @Override
@@ -94,6 +90,7 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
             }
 
         });
+        return actionBar;
     }
 
     private void showRecord(Record record) {
@@ -121,7 +118,10 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
             final Object tag = v.getTag();
             if (tag instanceof Record) {
                 final Record record = (Record) tag;
-                showRecord(record);
+                //showRecord(record);
+                Intent i = new Intent(RecordActivity.this, RecordImageActivity.class);
+                i.putExtra("record", record);
+                startActivity(i);
             }
         }
 

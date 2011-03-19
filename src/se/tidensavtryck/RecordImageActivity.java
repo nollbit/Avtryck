@@ -2,8 +2,11 @@ package se.tidensavtryck;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
 import com.markupartist.android.widget.ActionBar;
+import com.markupartist.android.widget.actionbar.R;
+
 import se.tidensavtryck.model.Record;
 
 /**
@@ -36,8 +39,19 @@ public class RecordImageActivity extends Activity {
     private void initActionBar() {
         ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
         actionBar.setTitle(record.getTitle());
-        actionBar.setHomeAction(new ActionBar.IntentAction(
-                this, StartActivity.createIntent(this),
-                R.drawable.ic_actionbar_home_default));
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAction(new ActionBar.Action() {
+
+            @Override
+            public int getDrawable() {
+                return R.drawable.ic_actionbar_home_default;
+            }
+
+            @Override
+            public void performAction(View view) {
+                finish();
+            }
+
+        });
     }
 }
