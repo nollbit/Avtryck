@@ -9,10 +9,10 @@ Ett bidrag till [Appening][appening]. Det finns även ett en tillhörande [webbd
 Skärmdumpar
 ===========
 
-![Alt text](mmiphone/raw/master/captures/7.png "Lista på vandringar")
-![Alt text](mmiphone/raw/master/captures/6.png "Vandringsöversikt")
-![Alt text](mmiphone/raw/master/captures/3.png "Vandringskarta")
-![Alt text](mmiphone/raw/master/captures/8.png "Vandringskarta landskapsläge")
+![Alt text](Avtryck/raw/master/captures/7.png "Lista på vandringar")
+![Alt text](Avtryck/raw/master/captures/6.png "Vandringsöversikt")
+![Alt text](Avtryck/raw/master/captures/3.png "Vandringskarta")
+![Alt text](Avtryck/raw/master/captures/8.png "Vandringskarta landskapsläge")
 
 Beroenden
 =========
