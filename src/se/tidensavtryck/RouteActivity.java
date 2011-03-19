@@ -193,8 +193,10 @@ public class RouteActivity extends MapActivity {
 
             Place place = getItem(position);
             TextView titleView = (TextView) convertView.findViewById(R.id.row_place_title);
-            titleView.setText(String.format("%s %s", position + 1, place.getTitle()));
-
+            titleView.setText(String.format("%s", place.getTitle()));
+            TextView placeNumber = (TextView) convertView.findViewById(R.id.row_place_number);
+            placeNumber.setText(String.format("%s", position + 1));
+            
             return convertView;
         }
     }
