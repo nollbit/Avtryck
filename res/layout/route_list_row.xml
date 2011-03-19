@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+
+	<TextView android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:id="@+id/routeNumPlaces"
+		android:text="5" android:paddingLeft="4pt" android:paddingRight="4pt"
+		android:textSize="18pt" android:layout_alignParentRight="true"></TextView>
+
+		
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:layout_weight="1" android:layout_width="match_parent"
+		android:layout_toLeftOf="@+id/routeNumPlaces" android:paddingLeft="2pt">
+
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:text="Title" android:id="@+id/routeTitle" android:textSize="10pt"></TextView>
+
+
+		<LinearLayout android:id="@+id/LinearLayout02"
+			android:layout_width="wrap_content" android:layout_height="wrap_content">
+			<TextView android:layout_height="wrap_content"
+				android:layout_width="wrap_content" android:text="Duration"
+				android:id="@+id/routeDuration" android:textSize="6pt"
+				android:layout_weight="1"></TextView>
+			<TextView android:layout_height="wrap_content"
+				android:layout_width="wrap_content" android:text="@string/duration_unit"
+				android:id="@+id/routeDurationUnit" android:textSize="6pt"
+				android:layout_weight="1" android:paddingLeft="2pt"></TextView>
+		</LinearLayout>
+
+	</LinearLayout>
+	
+
+</RelativeLayout>
