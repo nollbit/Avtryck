@@ -20,9 +20,11 @@ Något lånat
 ===========
 Stort tack till folket från [Riksantikvarieämbetet][raa] för information och källkod runt APIt och Kringla.
 
-Tack till [Coolof][coolof] för ikoner. 
+Tack till [Olof Brickarp][coolof] för [ikoner][cooloficon]. 
 
 [raa]: http://www.raa.se/
+[coolof]: http://www.yay.se/
+[cooloficon]: http://www.yay.se/2011/03/native-android-icons-vector-pack/
 
 Licens
 ======
