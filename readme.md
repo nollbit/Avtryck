@@ -1,9 +1,10 @@
 Avtryck
 =======
 
-Ett bidrag till [Appening][appening].
+Ett bidrag till [Appening][appening]. Det finns även ett en tillhörande [webbdel][aweb].
 
 [appening]: http://www.appening.se
+[aweb]: https://github.com/nollbit/Avtryck-Web
 
 Licens
 ======
