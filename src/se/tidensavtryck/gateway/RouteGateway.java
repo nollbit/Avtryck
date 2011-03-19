@@ -28,8 +28,10 @@ public class RouteGateway {
         Route route = new Route();
         route.setTitle("En kort rundtur i Sundsvall");
         User user = new User();
-        user.setUserName("me");
+        user.setUserName("jonas");
         route.setCreatedBy(user);
+        route.setDurationInMinutes(54);
+        route.setLikes(42);
         route.setDescription("Besök kulturhistoriska platser i Sundsvall. En guidad tur byggd på information hämtad från K-samsök.");
 
         Place place1 = new Place();
