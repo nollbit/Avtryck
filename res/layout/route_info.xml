@@ -33,9 +33,8 @@
 			android:text="@string/duration_unit"></TextView>
 	</LinearLayout>
 
-	<LinearLayout android:id="@+id/LinearLayout01"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal" android:background="#666666">
+	<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal" android:background="#666666" android:id="@+id/routeThumbnailLayout">
 		<ImageView android:layout_width="fill_parent"
 			android:layout_height="fill_parent" android:id="@+id/routeThumbnail"
 			android:layout_margin="1dp"></ImageView>
@@ -50,4 +49,6 @@
 
 
 
+
+<ListView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/routeComments"></ListView>
 </LinearLayout>

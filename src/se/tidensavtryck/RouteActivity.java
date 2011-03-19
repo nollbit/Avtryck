@@ -44,7 +44,7 @@ public class RouteActivity extends MapActivity {
         setContentView(R.layout.route);
 
         mRoute = (Route) getIntent().getParcelableExtra("route");
-        initActionBar();
+        initActionBar(mRoute.getTitle());
 
         mMapView = (MapView) findViewById(R.id.mapview);
         mMapView.setBuiltInZoomControls(true);
@@ -108,12 +108,13 @@ public class RouteActivity extends MapActivity {
         mapView.getOverlays().add(mMyLocationOverlay);
     }
 
-    private void initActionBar() {
+    private void initActionBar(String title) {
         ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
         actionBar.setHomeAction(new ActionBar.IntentAction(
                 this, StartActivity.createIntent(this),
                 R.drawable.ic_actionbar_home_default));
         actionBar.addAction(new MyLocationActionItem());
+        actionBar.setTitle(title);
     }
 
     private void initList(Route route) {
