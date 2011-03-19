@@ -16,11 +16,30 @@
 ** limitations under the License.
 */
 -->
-
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/row_place_title"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:padding="10dip"
-	/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip"
+    >
+    <TextView
+        android:id="@+id/row_place_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="#ffffff"
+        android:textSize="12dip"
+        android:background="@drawable/place_number_background"
+		android:paddingRight="4dip"
+		android:paddingLeft="4dip"
+        android:layout_marginRight="10dip"
+        />
+	<TextView
+	    android:id="@+id/row_place_title"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="3dip"
+	    android:text="sdksdl"
+	    />
+</LinearLayout>
 
