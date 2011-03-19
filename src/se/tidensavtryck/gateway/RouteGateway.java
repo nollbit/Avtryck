@@ -85,7 +85,7 @@ public class RouteGateway {
         try {
         	for (Integer i : placeRecordMap.keySet()) {
         		String filename = String.format("place%d.xml", i);
-                InputStream is = this.mAssetManager.open("place1.xml");
+                InputStream is = this.mAssetManager.open(filename);
                 XMLPull pull = new XMLPull(is);
                 placeRecordMap.get(i).setRecords(pull.parse());
         		
