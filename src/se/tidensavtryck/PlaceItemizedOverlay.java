@@ -10,10 +10,12 @@ import android.widget.Toast;
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 import com.readystatesoftware.mapviewballoons.BalloonItemizedOverlay;
+import se.tidensavtryck.model.Place;
 
-public class PlaceItemizedOverlay  extends BalloonItemizedOverlay<OverlayItem> {
+public class PlaceItemizedOverlay extends BalloonItemizedOverlay<OverlayItem> {
 
     private ArrayList<OverlayItem> m_overlays = new ArrayList<OverlayItem>();
+    private ArrayList<Place> m_places = new ArrayList<Place>();
     private Context c;
 	private final Context context;
     
@@ -23,10 +25,11 @@ public class PlaceItemizedOverlay  extends BalloonItemizedOverlay<OverlayItem> {
         c = mapView.getContext();
     }
 
-    public void addOverlay(OverlayItem overlay, Drawable drawable) {
+    public void addOverlay(OverlayItem overlay, Drawable drawable, Place place) {
     	boundCenter(drawable);
     	overlay.setMarker(drawable);
         m_overlays.add(overlay);
+        m_places.add(place);
         populate();
     }
     
@@ -44,7 +47,10 @@ public class PlaceItemizedOverlay  extends BalloonItemizedOverlay<OverlayItem> {
     protected boolean onBalloonTap(int index) {
         Toast.makeText(c, "onPlaceTap for overlay index " + index,
                 Toast.LENGTH_LONG).show();
+        Place place = m_places.get(index);
+
         Intent i = new Intent(context, RecordActivity.class);
+        i.putExtra("place", place);
         context.startActivity(i);
         return true;
     }
