@@ -2,7 +2,10 @@ package se.tidensavtryck;
 
 import java.util.ArrayList;
 
+import se.tidensavtryck.model.Route;
+
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.widget.Toast;
 
@@ -14,9 +17,11 @@ public class PlaceItemizedOverlay  extends BalloonItemizedOverlay<OverlayItem> {
 
     private ArrayList<OverlayItem> m_overlays = new ArrayList<OverlayItem>();
     private Context c;
+	private final Context context;
     
-    public PlaceItemizedOverlay(Drawable defaultMarker, MapView mapView) {
+    public PlaceItemizedOverlay(Context context, Drawable defaultMarker, MapView mapView) {
         super(boundCenter(defaultMarker), mapView);
+		this.context = context;
         c = mapView.getContext();
     }
 
@@ -39,6 +44,8 @@ public class PlaceItemizedOverlay  extends BalloonItemizedOverlay<OverlayItem> {
     protected boolean onBalloonTap(int index) {
         Toast.makeText(c, "onPlaceTap for overlay index " + index,
                 Toast.LENGTH_LONG).show();
+        Intent i = new Intent(context, RecordActivity.class);
+        context.startActivity(i);
         return true;
     }
     
