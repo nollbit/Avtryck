@@ -14,19 +14,18 @@
 
 	<TextView android:id="@+id/routeInfoDescription"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:paddingTop="8pt" android:paddingLeft="2pt"
-		android:paddingRight="2pt" android:paddingBottom="4pt" android:text="Route description"></TextView>
+		android:paddingTop="8dp" android:paddingBottom="4dp" android:text="Route description" android:paddingLeft="8dp" android:paddingRight="8dp"></TextView>
 
 	<LinearLayout android:id="@+id/routeDurationLayout"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:orientation="horizontal" android:paddingLeft="2pt">
+		android:orientation="horizontal" android:paddingLeft="8dp" android:paddingRight="8dp">
 
 		<TextView android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:id="@+id/routeDurationLabel"
 			android:text="@string/duration"></TextView>
-		<TextView android:paddingBottom="4pt" android:paddingLeft="2pt"
+		<TextView android:paddingBottom="4dp" android:paddingLeft="2dp"
 			android:layout_height="wrap_content" android:id="@+id/routeDuration"
-			android:paddingRight="2pt" android:layout_width="wrap_content"
+			android:paddingRight="2dp" android:layout_width="wrap_content"
 			android:text="duration"></TextView>
 
 		<TextView android:layout_width="wrap_content"
@@ -38,12 +37,13 @@
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal" android:background="#666666">
 		<ImageView android:layout_width="fill_parent"
-			android:layout_height="fill_parent" android:id="@+id/routeThumbnail" android:layout_margin="1pt"></ImageView>
+			android:layout_height="fill_parent" android:id="@+id/routeThumbnail"
+			android:layout_margin="1dp"></ImageView>
 	</LinearLayout>
 
 	<Button android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:id="@+id/button_route"
-		android:text="@string/start_route" android:layout_marginTop="5pt" />
+		android:text="@string/start_route" android:layout_marginTop="5dp" />
 
 
 
