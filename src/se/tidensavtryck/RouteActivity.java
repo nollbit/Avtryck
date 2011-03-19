@@ -110,7 +110,7 @@ public class RouteActivity extends MapActivity {
      */
     private PlaceItemizedOverlay createPlaceOverlay(Place place, int index) {
         Drawable drawable = createMarker(index);
-        PlaceItemizedOverlay itemizedOverlay = new PlaceItemizedOverlay(drawable, mMapView);
+        PlaceItemizedOverlay itemizedOverlay = new PlaceItemizedOverlay(this, drawable, mMapView);
 
         GeoPoint point = new GeoPoint(
                 (int)(place.getGeoLocation().getLatitude()*1E6),
