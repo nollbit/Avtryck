@@ -34,13 +34,17 @@
 			android:text="@string/duration_unit"></TextView>
 	</LinearLayout>
 
-	<ImageView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:id="@+id/routeThumbnail"
-		android:layout_gravity="center_horizontal"></ImageView>
-		
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal" android:background="#666666">
+		<ImageView android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:id="@+id/routeThumbnail" android:layout_margin="1pt"></ImageView>
+	</LinearLayout>
+
 	<Button android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:id="@+id/button_route"
 		android:text="@string/start_route" android:layout_marginTop="5pt" />
+
 
 
 
