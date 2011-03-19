@@ -15,10 +15,13 @@ import se.tidensavtryck.model.Record;
 import com.google.android.imageloader.ImageLoader;
 import com.google.android.imageloader.ImageLoader.BindResult;
 
+import java.util.LinkedList;
+
 public class RecordActivity extends Activity implements ImageLoader.Callback {
     private ImageView mImageView;
     private Place mPlace;
     private int mRecordIndex;
+    private LinkedList<String> mThumbnailUrls;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,12 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
 
         mImageView = (ImageView) findViewById(R.id.recordThumbnail);
 
-        showRecord();
+        mThumbnailUrls = new LinkedList<String>();
+        for (Record record : mPlace.getRecords()) {
+            mThumbnailUrls.add(record.getThumbnailURL());
+        }
+
+        showRecord(0);
 	}
 	
     private void initActionBar() {
@@ -56,8 +64,9 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
         });
     }
 
-    private void showRecord() {
-        final Record record = mPlace.getRecords().get(mRecordIndex);
+    private void showRecord(int recordIndex) {
+        final Record record = mPlace.getRecords().get(recordIndex);
+        
         BindResult result = ImageLoader.get(this).bind(mImageView, record.getThumbnailURL(), this);
 	    if(result == ImageLoader.BindResult.LOADING) {
             mImageView.setVisibility(ImageView.GONE);
