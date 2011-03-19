@@ -5,17 +5,18 @@
 
 	<TextView android:layout_height="wrap_content"
 		android:layout_width="wrap_content" android:id="@+id/routeNumPlaces"
-		android:text="5" android:paddingLeft="4pt" android:paddingRight="4pt"
-		android:textSize="18pt" android:layout_alignParentRight="true"></TextView>
+		android:text="5" android:layout_alignParentRight="true" 
+		android:textColor="@color/number_of_places" android:textSize="15pt" android:paddingLeft="5pt" android:paddingRight="5pt"></TextView>
 
-		
+
 	<LinearLayout android:id="@+id/LinearLayout01"
 		android:layout_height="wrap_content" android:orientation="vertical"
 		android:layout_weight="1" android:layout_width="match_parent"
 		android:layout_toLeftOf="@+id/routeNumPlaces" android:paddingLeft="2pt">
 
 		<TextView android:layout_height="wrap_content"
-			android:layout_width="wrap_content" android:text="Title" android:id="@+id/routeTitle" android:textSize="10pt"></TextView>
+			android:layout_width="wrap_content" android:text="Title" android:id="@+id/routeTitle"
+			android:textSize="10pt"></TextView>
 
 
 		<LinearLayout android:id="@+id/LinearLayout02"
@@ -31,6 +32,6 @@
 		</LinearLayout>
 
 	</LinearLayout>
-	
+
 
 </RelativeLayout>

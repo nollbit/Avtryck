@@ -70,6 +70,10 @@ public class StartActivity extends ListActivity {
             title.setText(route.getTitle());
             TextView duration = (TextView) convertView.findViewById(R.id.routeDuration);
             duration.setText(""+route.getDurationInMinutes());
+            
+            TextView numPlaces = (TextView) convertView.findViewById(R.id.routeNumPlaces);
+            numPlaces.setBackgroundResource(R.drawable.circle_background);
+            numPlaces.setText(""+route.getPlaces().size());
 
             return convertView;
         }
