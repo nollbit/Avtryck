@@ -8,9 +8,9 @@ Ett bidrag till [Appening][appening]. Det finns även ett en tillhörande [webbd
 
 Beroenden
 =========
-[Map ballons][mb]
-[Action Bar][aab]
-[Image loader][il]
+ * [Map ballons][mb]
+ * [Action Bar][aab]
+ * [Image loader][il]
 
 [mb]: https://github.com/jgilfelt/android-mapviewballoons
 [aab]: https://github.com/johannilsson/android-actionbar
