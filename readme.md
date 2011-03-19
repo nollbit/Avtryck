@@ -18,13 +18,17 @@ Beroenden
 
 Något lånat
 ===========
-Stort tack till folket från [Riksantikvarieämbetet][raa] för information och källkod runt APIt och Kringla.
+Stort tack till folket från [Riksantikvarieämbetet][raa] för information runt APIt och Kringla-appen.
 
-Tack till [Olof Brickarp][coolof] för [ikoner][cooloficon]. 
+Tack till [Olof Brickarp][coolof] för [ikonerna][cooloficon]. 
+
+[Thumbsup-ikonen][thumbsup] är från [Icon Finder][iconfinder]
 
 [raa]: http://www.raa.se/
 [coolof]: http://www.yay.se/
 [cooloficon]: http://www.yay.se/2011/03/native-android-icons-vector-pack/
+[thumbsup]: http://www.iconfinder.com/icondetails/64879/32/like_thumb_thumbs_up_up_vote_icon
+[iconfinder]: http://www.iconfinder.com
 
 Licens
 ======
