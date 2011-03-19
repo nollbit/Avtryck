@@ -38,6 +38,8 @@ public class Route implements Parcelable{
 		title = parcel.readString();
         createdBy = parcel.readParcelable(User.class.getClassLoader());
 		description = parcel.readString();
+		durationInMinutes = parcel.readInt();
+		likes = parcel.readInt();
 
 		places = new ArrayList<Place>();
 		parcel.readTypedList(places, Place.CREATOR);
@@ -85,6 +87,9 @@ public class Route implements Parcelable{
 		dest.writeString(title);
         dest.writeParcelable(createdBy, 0);
 		dest.writeString(description);
+		dest.writeInt(durationInMinutes);
+		dest.writeInt(likes);
+		
 		dest.writeTypedList(places);
 	}
 

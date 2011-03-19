@@ -90,7 +90,11 @@ public class RouteInfoActivity extends ListActivity {
             commentText.setText(comment.getComment());
             
             ImageView avatar = (ImageView) convertView.findViewById(R.id.avatarView);
-            avatar.setBackgroundResource(R.drawable.avatar_example);
+            int avatarResource = R.drawable.avatar_example2;
+            if (position % 2 == 1) {
+            	avatarResource = R.drawable.avatar_example;
+            }
+            avatar.setBackgroundResource(avatarResource);
             return convertView;
         }
 
