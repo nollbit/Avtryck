@@ -110,7 +110,7 @@ public class RouteActivity extends MapActivity {
      */
     private PlaceItemizedOverlay createPlaceOverlay(Place place, int index) {
         Drawable drawable = createMarker(index);
-        PlaceItemizedOverlay itemizedOverlay = new PlaceItemizedOverlay(drawable, mMapView);
+        PlaceItemizedOverlay itemizedOverlay = new PlaceItemizedOverlay(this, drawable, mMapView);
 
         GeoPoint point = new GeoPoint(
                 (int)(place.getGeoLocation().getLatitude()*1E6),
@@ -193,8 +193,10 @@ public class RouteActivity extends MapActivity {
 
             Place place = getItem(position);
             TextView titleView = (TextView) convertView.findViewById(R.id.row_place_title);
-            titleView.setText(String.format("%s %s", position + 1, place.getTitle()));
-
+            titleView.setText(String.format("%s", place.getTitle()));
+            TextView placeNumber = (TextView) convertView.findViewById(R.id.row_place_number);
+            placeNumber.setText(String.format("%s", position + 1));
+            
             return convertView;
         }
     }
