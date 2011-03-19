@@ -30,7 +30,7 @@ public class RouteGateway {
         User user = new User();
         user.setUserName("me");
         route.setCreatedBy(user);
-        route.setDescription("Information hämtad från K-samsök.");
+        route.setDescription("Besök kulturhistoriska platser i Sundsvall. En guidad tur byggd på information hämtad från K-samsök.");
 
         Place place1 = new Place();
         place1.setTitle("Runsten");
