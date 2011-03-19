@@ -5,24 +5,14 @@ import java.util.List;
 import se.tidensavtryck.gateway.RouteGateway;
 import se.tidensavtryck.model.Place;
 import se.tidensavtryck.model.Route;
-
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
-import com.markupartist.android.widget.ActionBar;
-
+import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
-import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +22,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.android.maps.GeoPoint;
+import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
+import com.google.android.maps.MapView;
+import com.google.android.maps.Overlay;
+import com.google.android.maps.OverlayItem;
+import com.markupartist.android.widget.ActionBar;
 
 public class RouteActivity extends MapActivity {
 
@@ -64,8 +62,13 @@ public class RouteActivity extends MapActivity {
         mRoute = route;
 
         initList(route);
-        addOverlaysFromRoute(route, mMapOverlays);
-
+    	int index = 1;
+        for (Place place : route.getPlaces()) {
+            addPlaceOverlay(place, index);
+            index++;
+        }
+        mMapOverlays.add(itemizedOverlay);
+        
         final MapController mc = mMapView.getController();
 
         if (mMapOverlays.size() > 0) {
@@ -94,25 +97,13 @@ public class RouteActivity extends MapActivity {
         }
     }
 
-    /**
-     * Add overlays from a {@link Route}.
-     * @param route The route.
-     * @param mapOverlays The overlays.
-     */
-    private void addOverlaysFromRoute(Route route, List<Overlay> mapOverlays) {
-    	int index = 1;
-        for (Place place : route.getPlaces()) {
-            mapOverlays.add(createPlaceOverlay(place, index));
-            index++;
-        }
-    }
 
     /**
      * Creates an overlay from a {@link Place}.
      * @param place The place.
      * @return An overlay.
      */
-    private PlaceItemizedOverlay createPlaceOverlay(Place place, int index) {
+    private void addPlaceOverlay(Place place, int index) {
         GeoPoint point = new GeoPoint(
                 (int)(place.getGeoLocation().getLatitude()*1E6),
                 (int)(place.getGeoLocation().getLongitude()*1E6));
@@ -122,8 +113,6 @@ public class RouteActivity extends MapActivity {
         Drawable drawable = createMarker(index);
         
         itemizedOverlay.addOverlay(overlayItem, drawable);
-
-        return itemizedOverlay;
     }
 
     @Override
