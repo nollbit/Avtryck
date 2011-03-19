@@ -12,6 +12,8 @@ public class Route implements Parcelable{
 	private String description;
 	private User createdBy;
     private List<Place> places;
+    private int likes = 0;
+	private int durationInMinutes;
 
     public void setTitle(String title) {
         this.title = title;
@@ -58,11 +60,19 @@ public class Route implements Parcelable{
 	}
 	
 	public int getDurationInMinutes() {
-		return 54;
+		return durationInMinutes;
+	}
+	
+	public void setDurationInMinutes(int durationInMinutes) {
+		this.durationInMinutes = durationInMinutes;
 	}
 
 	public int getLikes() {
-		return 42;
+		return likes;
+	}
+	
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
 	
 	@Override
