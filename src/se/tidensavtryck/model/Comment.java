@@ -23,6 +23,13 @@ public class Comment {
 		return comment;
 	}
 	
+	
+	public static List<Comment> createDummyVisbyComments() {
+		List<Comment> comments = new ArrayList<Comment>();
+		comments.add(new Comment(new User(), "Visby är en underbar stad!"));
+		return comments;
+	}
+	
 	public static List<Comment> createDummyComments() {
 		List<Comment> comments = new ArrayList<Comment>();
 		comments.add(new Comment(new User(), "Mycket bra!"));
