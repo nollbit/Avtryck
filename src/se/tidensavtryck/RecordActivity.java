@@ -1,6 +1,7 @@
 package se.tidensavtryck;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,13 +32,6 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
         initActionBar();
 
         mImageView = (ImageView) findViewById(R.id.recordThumbnail);
-        mImageView.setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub                
-            }
-        });
 
         showRecord();
 	}
@@ -51,10 +45,18 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
     }
 
     private void showRecord() {
-        Record record = mPlace.getRecords().get(mRecordIndex);
+        final Record record = mPlace.getRecords().get(mRecordIndex);
         BindResult result = ImageLoader.get(this).bind(mImageView, record.getThumbnailURL(), this);
 	    if(result == ImageLoader.BindResult.LOADING) {
             mImageView.setVisibility(ImageView.GONE);
+            mImageView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(RecordActivity.this, RecordImageActivity.class);
+                    i.putExtra("record", record);
+                    startActivity(i);
+                }
+            });
         }
 
         TextView title = (TextView) findViewById(R.id.recordTitle);
