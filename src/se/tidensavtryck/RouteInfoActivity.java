@@ -5,6 +5,7 @@ import java.util.List;
 import se.tidensavtryck.model.Comment;
 import se.tidensavtryck.model.Route;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ import android.widget.TextView;
 
 import com.markupartist.android.widget.ActionBar;
 
-public class RouteInfoActivity extends Activity {
+public class RouteInfoActivity extends ListActivity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,19 +33,22 @@ public class RouteInfoActivity extends Activity {
 
         initActionBar();
 
-        TextView title = (TextView) findViewById(R.id.routeInfoTitle);
+        // Build the header view.
+        View headerView = getLayoutInflater().inflate(R.layout.route_info_header, null);
+
+        TextView title = (TextView) headerView.findViewById(R.id.routeInfoTitle);
         title.setText(route.getTitle());
         
-        TextView description = (TextView) findViewById(R.id.routeInfoDescription);
+        TextView description = (TextView) headerView.findViewById(R.id.routeInfoDescription);
         description.setText(route.getDescription());
         
-        TextView duration = (TextView) findViewById(R.id.routeDuration);
+        TextView duration = (TextView) headerView.findViewById(R.id.routeDuration);
         duration.setText(""+route.getDurationInMinutes());
         
-        ImageView thumbnail = (ImageView) findViewById(R.id.routeThumbnail);
+        ImageView thumbnail = (ImageView) headerView.findViewById(R.id.routeThumbnail);
         thumbnail.setBackgroundResource(R.drawable.route_thumbnail_example);
         
-        Button button = (Button) findViewById(R.id.button_route);
+        Button button = (Button) headerView.findViewById(R.id.button_route);
         button.setOnClickListener(new OnClickListener() {
             
             @Override
@@ -54,9 +58,9 @@ public class RouteInfoActivity extends Activity {
                 startActivity(i);
             }
         });
-        
-         ListView commentsList = (ListView) findViewById(R.id.routeComments);
-         commentsList.setAdapter(new CommentsAdapter(this, Comment.createDummyComments()));
+
+        getListView().addHeaderView(headerView, null, false);
+        setListAdapter(new CommentsAdapter(this, Comment.createDummyComments())); 
     }
 
     private void initActionBar() {
