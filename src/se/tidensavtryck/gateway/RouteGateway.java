@@ -33,20 +33,20 @@ public class RouteGateway {
         route.setDescription("Information hämtad från K-samsök.");
 
         Place place1 = new Place();
-        place1.setTitle("Place 1");
-        place1.setDescription("Runsten");
+        place1.setTitle("Runsten");
+        place1.setDescription("Gunvid och Torgärd de lät resa sten efter Torsten, sin son...");
         
         Place place2 = new Place();
-        place2.setTitle("Place 2");
-        place2.setDescription("Båt");
+        place2.setTitle("Skeppsvrak");
+        place2.setDescription("Vrak från 1400-talet");
         
         Place place3 = new Place();
-        place3.setTitle("Place 3");
-        place3.setDescription("Hedbergska");
+        place3.setTitle("Hedbergska huset");
+        place3.setDescription("Träpatronen Hedbergs hus");
         
         Place place4 = new Place();
-        place4.setTitle("Place 4");
-        place4.setDescription("Stenstaden");
+        place4.setTitle("Stenstaden");
+        place4.setDescription("Några byggnader i stenstaden");
 
         Location loc1 = new Location("se.tidensavtryck");
         loc1.setLatitude(62.4007043202567);
