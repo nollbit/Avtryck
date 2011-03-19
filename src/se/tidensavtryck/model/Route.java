@@ -2,22 +2,15 @@ package se.tidensavtryck.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
-import android.location.Location;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
 
 public class Route implements Parcelable{
-
 	private String title;
-
 	private String description;
-
-	private User creator;
-
+	private User createdBy;
     private List<Place> places;
 
     public void setTitle(String title) {
@@ -28,32 +21,24 @@ public class Route implements Parcelable{
         this.description = description;
     }
 
-    public void setCreator(User creator) {
-        this.creator = creator;
+    public void setCreatedBy(User createdBy) {
+        this.createdBy = createdBy;
     }
 
     public void setPlaces(List<Place> places) {
         this.places = places;
     }
 
-	public Route(String title, String description,
-			User creator, LinkedList<Place> places) {
-		this.title = title;
-		this.description = description;
-		this.creator = creator;
-		this.places = places;
-	}
-
 	public Route() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Route(Parcel parcel) {
-		this.title = parcel.readString();
-		this.description = parcel.readString();
-		//this.creator = parcel.readParcelable(null);
-		this.places = new ArrayList<Place>();
-		parcel.readTypedList(this.places, Place.CREATOR);
+		title = parcel.readString();
+        createdBy = parcel.readParcelable(User.class.getClassLoader());
+		description = parcel.readString();
+
+		places = new ArrayList<Place>();
+		parcel.readTypedList(places, Place.CREATOR);
 	}
 
 	public List<Place> getPlaces() {
@@ -68,8 +53,8 @@ public class Route implements Parcelable{
 		return description;
 	}
 
-	public User getCreator() {
-		return creator;
+	public User getCreatedBy() {
+		return createdBy;
 	}
 	
 	public int getDurationInMinutes() {
@@ -78,16 +63,15 @@ public class Route implements Parcelable{
 
 	@Override
 	public int describeContents() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(this.title);
-		dest.writeString(this.description);
-		//dest.writeParcelable(this.creator, 0);
-		dest.writeTypedList(this.places);
+		dest.writeString(title);
+        dest.writeParcelable(createdBy, 0);
+		dest.writeString(description);
+		dest.writeTypedList(places);
 	}
 
     public static final Creator<Route> CREATOR = new Creator<Route>() {

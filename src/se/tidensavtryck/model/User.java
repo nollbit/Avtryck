@@ -3,16 +3,23 @@ package se.tidensavtryck.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class User implements Parcelable{
+public class User implements Parcelable {
     private String userName;
 
-    public User(String username) {
-        this.userName = username;
+    public User() {
     }
 
 	public User(Parcel parcel) {
 		this.userName = parcel.readString();
 	}
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
 	@Override
 	public int describeContents() {
