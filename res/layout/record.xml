@@ -20,11 +20,17 @@
 		  android:orientation="vertical"
 		  >
 		  
-		  <LinearLayout
+		  <HorizontalScrollView
 	          android:layout_width="fill_parent"
 	          android:layout_height="fill_parent"
 	          android:background="@drawable/search_plate_global"
 		      >
+		      <LinearLayout
+		          android:id="@+id/thumbnail_holder"
+	              android:layout_width="fill_parent"
+	              android:layout_height="fill_parent"
+		      />
+		      <!--
 			  <ImageView
 			      android:layout_width="fill_parent"
 				  android:layout_height="wrap_content"
@@ -32,7 +38,8 @@
 				  android:layout_gravity="center_horizontal"
 				  android:padding="5pt"
 				  />
-            </LinearLayout>
+               -->
+            </HorizontalScrollView>
             <TextView
                 android:layout_width="fill_parent"
 	            android:layout_height="wrap_content"

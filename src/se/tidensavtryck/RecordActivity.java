@@ -1,27 +1,31 @@
 package se.tidensavtryck;
 
+import se.tidensavtryck.model.Place;
+import se.tidensavtryck.model.Record;
 import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.markupartist.android.widget.ActionBar;
-import se.tidensavtryck.model.Place;
-import se.tidensavtryck.model.Record;
+import android.widget.Toast;
 
 import com.google.android.imageloader.ImageLoader;
 import com.google.android.imageloader.ImageLoader.BindResult;
+import com.markupartist.android.widget.ActionBar;
+import com.markupartist.android.widget.actionbar.R;
 
-import java.util.LinkedList;
 
 public class RecordActivity extends Activity implements ImageLoader.Callback {
-    private ImageView mImageView;
     private Place mPlace;
     private int mRecordIndex;
-    private LinkedList<String> mThumbnailUrls;
+    private LayoutInflater mInflater;
+    private LinearLayout mImageHolder;
+    private ThumbnailOnClickListener mThumbnailOnClickListener;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +33,49 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
 	
         setContentView(R.layout.record);
 
+        mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         mPlace = (Place) getIntent().getParcelableExtra("place");
         mRecordIndex = 0;
 
         initActionBar();
 
-        mImageView = (ImageView) findViewById(R.id.recordThumbnail);
+        mImageHolder = (LinearLayout) findViewById(R.id.thumbnail_holder);
+        mThumbnailOnClickListener = new ThumbnailOnClickListener();
 
-        mThumbnailUrls = new LinkedList<String>();
         for (Record record : mPlace.getRecords()) {
-            mThumbnailUrls.add(record.getThumbnailURL());
+            //mThumbnailUrls.add(record.getThumbnailURL());
+            mImageHolder.addView(inflateThumbnail(record));
         }
 
-        showRecord(0);
+        if (mPlace.getRecords().size() > 0) {
+            final Record record = mPlace.getRecords().get(0);
+            showRecord(record);
+        }
 	}
-	
+
+    private View inflateThumbnail(Record record) {
+        View view = mInflater.inflate(R.layout.record_thumbnail, mImageHolder, false);
+
+        ImageView imageView =
+            (ImageView) view.findViewById(R.id.record_thumbnail);
+
+        BindResult result = ImageLoader.get(this).bind(imageView, record.getThumbnailURL(), this);
+        if(result == ImageLoader.BindResult.LOADING) {
+            imageView.setVisibility(ImageView.GONE);
+            imageView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(RecordActivity.this, "click", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        view.setTag(record);
+        view.setOnClickListener(mThumbnailOnClickListener);
+
+        return view;
+    }
+    
     private void initActionBar() {
         ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
         actionBar.setTitle(String.format("%1$d av %2$d", mRecordIndex+1, mPlace.getRecords().size()));
@@ -60,26 +92,11 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
             public void performAction(View view) {
                 finish();
             }
-            
+
         });
     }
 
-    private void showRecord(int recordIndex) {
-        final Record record = mPlace.getRecords().get(recordIndex);
-        
-        BindResult result = ImageLoader.get(this).bind(mImageView, record.getThumbnailURL(), this);
-	    if(result == ImageLoader.BindResult.LOADING) {
-            mImageView.setVisibility(ImageView.GONE);
-            mImageView.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(RecordActivity.this, RecordImageActivity.class);
-                    i.putExtra("record", record);
-                    startActivity(i);
-                }
-            });
-        }
-
+    private void showRecord(Record record) {
         TextView title = (TextView) findViewById(R.id.recordTitle);
         title.setText(record.getTitle());
 
@@ -89,11 +106,24 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
 
     @Override
     public void onImageLoaded(ImageView imageView, String s) {
-        mImageView.setVisibility(ImageView.VISIBLE);
+        imageView.setVisibility(ImageView.VISIBLE);
     }
 
     @Override
     public void onImageError(ImageView imageView, String s, Throwable throwable) {
         Log.w("Avtryck", throwable.toString());
+    }
+
+    private class ThumbnailOnClickListener implements OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            final Object tag = v.getTag();
+            if (tag instanceof Record) {
+                final Record record = (Record) tag;
+                showRecord(record);
+            }
+        }
+
     }
 }
