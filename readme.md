@@ -18,12 +18,13 @@ Beroenden
 
 Något lånat
 ===========
-Stort tack till folket från [Riksantikvarieämbetet][raa] för information runt APIt och Kringla-appen.
+Stort tack till folket från [Riksantikvarieämbetet][raa] för information runt [K-Samsök][ksamsok] och Kringla-appen.
 
 Tack till [Olof Brickarp][coolof] för [ikonerna][cooloficon]. 
 
 [Thumbsup-ikonen][thumbsup] är från [Icon Finder][iconfinder]
 
+[ksamsok]: http://www.ksamsok.se/
 [raa]: http://www.raa.se/
 [coolof]: http://www.yay.se/
 [cooloficon]: http://www.yay.se/2011/03/native-android-icons-vector-pack/
