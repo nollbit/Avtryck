@@ -17,5 +17,6 @@
     <color name="actionbar_separator">#474747</color>
     <color name="actionbar_background_start">#282828</color>
     <color name="actionbar_background_end">#282828</color>
-<color name="number_of_places">#FFF</color>
+    <color name="number_of_places">#FFF</color>
+    <color name="black">#ff000000</color>
 </resources>
