@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/se.tidensavtryck"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="5dip">
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Route info"
+		android:id="@+id/routeInfoTitle"
+		android:textSize="12pt" />
+
+	<TextView android:id="@+id/routeInfoDescription"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:paddingTop="8dp" android:paddingBottom="4dp" android:text="Route description"
+		></TextView>
+
+	<LinearLayout android:id="@+id/routeDurationLayout"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/routeDurationLabel"
+			android:text="@string/duration"></TextView>
+		<TextView android:paddingBottom="4dp" android:paddingLeft="2dp"
+			android:layout_height="wrap_content" android:id="@+id/routeDuration"
+			android:paddingRight="2dp" android:layout_width="wrap_content"
+			android:text="duration"></TextView>
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/routeDurationUnit"
+			android:text="@string/duration_unit"></TextView>
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal" android:background="#666666" android:id="@+id/routeThumbnailLayout">
+		<ImageView android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:id="@+id/routeThumbnail"
+			android:layout_margin="1dp"></ImageView>
+	</LinearLayout>
+
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/button_route"
+		android:text="@string/start_route" android:layout_marginTop="5dp" />
+
+</LinearLayout>

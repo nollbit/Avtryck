@@ -1,14 +1,11 @@
 package se.tidensavtryck;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.markupartist.android.widget.ActionBar;
-
-import se.tidensavtryck.gateway.RouteGateway;
 import se.tidensavtryck.model.Comment;
 import se.tidensavtryck.model.Route;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +19,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class RouteInfoActivity extends Activity {
+import com.markupartist.android.widget.ActionBar;
+
+public class RouteInfoActivity extends ListActivity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,19 +33,22 @@ public class RouteInfoActivity extends Activity {
 
         initActionBar();
 
-        TextView title = (TextView) findViewById(R.id.routeInfoTitle);
+        // Build the header view.
+        View headerView = getLayoutInflater().inflate(R.layout.route_info_header, null);
+
+        TextView title = (TextView) headerView.findViewById(R.id.routeInfoTitle);
         title.setText(route.getTitle());
         
-        TextView description = (TextView) findViewById(R.id.routeInfoDescription);
+        TextView description = (TextView) headerView.findViewById(R.id.routeInfoDescription);
         description.setText(route.getDescription());
         
-        TextView duration = (TextView) findViewById(R.id.routeDuration);
+        TextView duration = (TextView) headerView.findViewById(R.id.routeDuration);
         duration.setText(""+route.getDurationInMinutes());
         
-        ImageView thumbnail = (ImageView) findViewById(R.id.routeThumbnail);
+        ImageView thumbnail = (ImageView) headerView.findViewById(R.id.routeThumbnail);
         thumbnail.setBackgroundResource(R.drawable.route_thumbnail_example);
         
-        Button button = (Button) findViewById(R.id.button_route);
+        Button button = (Button) headerView.findViewById(R.id.button_route);
         button.setOnClickListener(new OnClickListener() {
             
             @Override
@@ -56,10 +58,9 @@ public class RouteInfoActivity extends Activity {
                 startActivity(i);
             }
         });
-        
-        List<Comment> comments = new ArrayList<Comment>();
-         ListView commentsList = (ListView) findViewById(R.id.routeComments);
-         commentsList.setAdapter(new CommentsAdapter(this, comments));
+
+        getListView().addHeaderView(headerView, null, false);
+        setListAdapter(new CommentsAdapter(this, Comment.createDummyComments())); 
     }
 
     private void initActionBar() {
@@ -71,30 +72,27 @@ public class RouteInfoActivity extends Activity {
     }
     
     private class CommentsAdapter extends ArrayAdapter<Comment> {
-//        private LayoutInflater mInflater;
+        private LayoutInflater mInflater;
 
         public CommentsAdapter(Context context, List<Comment> comments) {
             super(context, android.R.layout.simple_list_item_1, comments);
 
-//            mInflater = (LayoutInflater) context.getSystemService(
-//                    Context.LAYOUT_INFLATER_SERVICE);
+            mInflater = (LayoutInflater) context.getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE);
         }
 
-        
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            convertView = mInflater.inflate(R.layout.route_list_row, null);
-//
-//            Route route = getItem(position);
-//            TextView title = (TextView) convertView.findViewById(R.id.routeTitle);
-//            title.setText(route.getTitle());
-//            TextView duration = (TextView) convertView.findViewById(R.id.routeDuration);
-//            duration.setText(""+route.getDurationInMinutes());
-//            
-//            ImageView likes = (ImageView) convertView.findViewById(R.id.routeLikes);
-//            likes.setBackgroundDrawable(createLikes(route.getLikes()));
-//            return convertView;
-//        }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = mInflater.inflate(R.layout.comment_list_row, null);
+
+            Comment comment = getItem(position);
+            TextView commentText = (TextView) convertView.findViewById(R.id.commentText);
+            commentText.setText(comment.getComment());
+            
+            ImageView avatar = (ImageView) convertView.findViewById(R.id.avatarView);
+            avatar.setBackgroundResource(R.drawable.avatar_example);
+            return convertView;
+        }
 
     }
 }

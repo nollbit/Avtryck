@@ -45,8 +45,6 @@ public class PlaceItemizedOverlay extends BalloonItemizedOverlay<OverlayItem> {
 
     @Override
     protected boolean onBalloonTap(int index) {
-        Toast.makeText(c, "onPlaceTap for overlay index " + index,
-                Toast.LENGTH_LONG).show();
         Place place = m_places.get(index);
 
         Intent i = new Intent(context, RecordActivity.class);
