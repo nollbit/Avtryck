@@ -6,6 +6,24 @@ Ett bidrag till [Appening][appening]. Det finns även ett en tillhörande [webbd
 [appening]: http://www.appening.se
 [aweb]: https://github.com/nollbit/Avtryck-Web
 
+Beroenden
+=========
+[Map ballons][mb]
+[Action Bar][aab]
+[Image loader][il]
+
+[mb]: https://github.com/jgilfelt/android-mapviewballoons
+[aab]: https://github.com/johannilsson/android-actionbar
+[il]: http://code.google.com/p/libs-for-android/       
+
+Något lånat
+===========
+Stort tack till folket från [Riksantikvarieämbetet][raa] för information och källkod runt APIt och Kringla.
+
+Tack till [Coolof][coolof] för ikoner. 
+
+[raa]: http://www.raa.se/
+
 Licens
 ======
 Copyright 2011 Johan Nilson, Jonas Beckman, Patrik Åkerfeldt, Joakim Bodin, Johan Mjönes
