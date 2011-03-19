@@ -91,7 +91,7 @@ public class RouteActivity extends MapActivity {
      * @param place The place.
      * @return An overlay.
      */
-    private PlaceItemizedOverlay addPlaceOverlay(Place place, int index) {
+    private void addPlaceOverlay(Place place, int index) {
         GeoPoint point = new GeoPoint(
                 (int)(place.getGeoLocation().getLatitude()*1E6),
                 (int)(place.getGeoLocation().getLongitude()*1E6));
@@ -101,7 +101,6 @@ public class RouteActivity extends MapActivity {
         Drawable drawable = createMarker(index);
         
         itemizedOverlay.addOverlay(overlayItem, drawable, place);
-        return itemizedOverlay;
     }
 
     @Override
