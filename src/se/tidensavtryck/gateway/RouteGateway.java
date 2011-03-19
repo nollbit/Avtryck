@@ -24,10 +24,10 @@ public class RouteGateway {
 		List<Route> routeList = new LinkedList<Route>();
 
         Route route = new Route();
-        route.setTitle("My Best Route");
+        route.setTitle("En kort rundtur i Sundsvall");
         User user = new User("Me");
         route.setCreator(user);
-        route.setDescription("My Best Description. Very long text to test that the UI really works");
+        route.setDescription("Information hämtad från K-samsök.");
 
         Place place1 = new Place();
         place1.setTitle("Place 1");
