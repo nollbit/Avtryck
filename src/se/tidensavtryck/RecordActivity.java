@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 import com.markupartist.android.widget.ActionBar;
 import se.tidensavtryck.model.Place;
 import se.tidensavtryck.model.Record;
@@ -46,6 +47,12 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
 	    if(result == ImageLoader.BindResult.LOADING) {
             mImageView.setVisibility(ImageView.GONE);
         }
+
+        TextView title = (TextView) findViewById(R.id.recordTitle);
+        title.setText(record.getTitle());
+
+        TextView description = (TextView) findViewById(R.id.recordDescription);
+        description.setText(record.getDescription());
     }
 
     @Override
@@ -55,6 +62,6 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
 
     @Override
     public void onImageError(ImageView imageView, String s, Throwable throwable) {
-        Log.w("Avtryck", s);
+        Log.w("Avtryck", throwable.toString());
     }
 }
