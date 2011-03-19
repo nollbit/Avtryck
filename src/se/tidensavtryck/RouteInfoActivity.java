@@ -63,7 +63,10 @@ public class RouteInfoActivity extends ListActivity {
         });
 
         getListView().addHeaderView(headerView, null, false);
-        setListAdapter(new CommentsAdapter(this, Comment.createDummyComments())); 
+        if(route.getTitle().equalsIgnoreCase("I ringmurens skugga")) 
+            setListAdapter(new CommentsAdapter(this, Comment.createDummyVisbyComments())); 
+        else
+        	setListAdapter(new CommentsAdapter(this, Comment.createDummyComments())); 
     }
 
     private void initActionBar() {
