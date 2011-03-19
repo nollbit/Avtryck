@@ -46,7 +46,10 @@ public class RouteInfoActivity extends ListActivity {
         duration.setText(""+route.getDurationInMinutes());
         
         ImageView thumbnail = (ImageView) headerView.findViewById(R.id.routeThumbnail);
-        thumbnail.setBackgroundResource(R.drawable.route_thumbnail_example);
+        if(route.getTitle().equalsIgnoreCase("I ringmurens skugga")) 
+        	thumbnail.setBackgroundResource(R.drawable.route_thumbnail_example_visby);
+        else
+        	thumbnail.setBackgroundResource(R.drawable.route_thumbnail_example);
         
         Button button = (Button) headerView.findViewById(R.id.button_route);
         button.setOnClickListener(new OnClickListener() {
@@ -60,7 +63,10 @@ public class RouteInfoActivity extends ListActivity {
         });
 
         getListView().addHeaderView(headerView, null, false);
-        setListAdapter(new CommentsAdapter(this, Comment.createDummyComments())); 
+        if(route.getTitle().equalsIgnoreCase("I ringmurens skugga")) 
+            setListAdapter(new CommentsAdapter(this, Comment.createDummyVisbyComments())); 
+        else
+        	setListAdapter(new CommentsAdapter(this, Comment.createDummyComments())); 
     }
 
     private void initActionBar() {
