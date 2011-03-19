@@ -9,9 +9,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class StartActivity extends ListActivity {
 	/** Called when the activity is first created. */
@@ -48,25 +51,28 @@ public class StartActivity extends ListActivity {
 	}
 	
     private class RouteAdapter extends ArrayAdapter<Route> {
-//        private LayoutInflater mInflater;
+        private LayoutInflater mInflater;
 
         public RouteAdapter(Context context, List<Route> routes) {
             super(context, android.R.layout.simple_list_item_1, routes);
 
-//            mInflater = (LayoutInflater) context.getSystemService(
-//                    Context.LAYOUT_INFLATER_SERVICE);
+            mInflater = (LayoutInflater) context.getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE);
         }
 
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            convertView = mInflater.inflate(R.layout.place_list_row, null);
-//
-//            Place place = getItem(position);
-//            TextView titleView = (TextView) convertView.findViewById(R.id.row_place_title);
-//            titleView.setText(place.getTitle());
-//
-//            return convertView;
-//        }
+        
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = mInflater.inflate(R.layout.route_list_row, null);
+
+            Route route = getItem(position);
+            TextView title = (TextView) convertView.findViewById(R.id.routeTitle);
+            title.setText(route.getTitle());
+            TextView duration = (TextView) convertView.findViewById(R.id.routeDuration);
+            duration.setText(""+route.getDurationInMinutes());
+
+            return convertView;
+        }
 
     }
 
