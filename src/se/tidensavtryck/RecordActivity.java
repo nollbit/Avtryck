@@ -3,6 +3,8 @@ package se.tidensavtryck;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.markupartist.android.widget.ActionBar;
@@ -29,6 +31,13 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
         initActionBar();
 
         mImageView = (ImageView) findViewById(R.id.recordThumbnail);
+        mImageView.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub                
+            }
+        });
 
         showRecord();
 	}
