@@ -7,12 +7,21 @@ import se.tidensavtryck.model.Route;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -71,10 +80,8 @@ public class StartActivity extends ListActivity {
             TextView duration = (TextView) convertView.findViewById(R.id.routeDuration);
             duration.setText(""+route.getDurationInMinutes());
             
-            TextView numPlaces = (TextView) convertView.findViewById(R.id.routeNumPlaces);
-            numPlaces.setBackgroundResource(R.drawable.circle_background);
-            numPlaces.setText(""+route.getPlaces().size());
-
+            ImageView likes = (ImageView) convertView.findViewById(R.id.routeLikes);
+            likes.setBackgroundDrawable(createLikes(route.getLikes()));
             return convertView;
         }
 
@@ -90,5 +97,42 @@ public class StartActivity extends ListActivity {
         Intent i = new Intent(context, StartActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return i;
+    }
+    
+    private Drawable createLikes(int likes) {
+    	Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.thumb_up);
+
+    	int size = 34;
+    	int x = 46;
+    	int y = 75;
+    	
+    	// create a mutable bitmap with the same size as the background image
+    	Bitmap bmOverlay = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), 
+    	    Bitmap.Config.ARGB_4444);
+    	// create a canvas on which to draw
+    	Canvas canvas = new Canvas(bmOverlay);
+
+    	
+    	RectF oval = new RectF(38, 38, 88, 88);
+    	Paint ovalPaint = new Paint();
+    	
+    	ovalPaint.setColor(Color.WHITE);
+    	ovalPaint.setAlpha(160);
+    	
+    	Paint textPaint = new Paint();
+    	textPaint.setColor(Color.BLACK);
+    	textPaint.setAlpha(160);
+    	textPaint.setTextSize(size);
+    	textPaint.setFlags(Paint.FAKE_BOLD_TEXT_FLAG);
+
+    	// if the background image is defined in main.xml, omit this line
+    	canvas.drawBitmap(mBitmap, 0, 0, null);
+    	canvas.drawOval(oval, ovalPaint);
+    	// draw the text and the point
+
+    	canvas.drawText(""+likes, x, y, textPaint);
+    	
+    	// set the bitmap into the ImageView
+    	return new BitmapDrawable(bmOverlay);
     }
 }
