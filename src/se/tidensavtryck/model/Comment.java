@@ -29,4 +29,8 @@ public class Comment {
 		comments.add(new Comment(new User(), "Lagom lång för barnen, dock närmare 70 minuter lång även utan barn."));
 		return comments;
 	}
+	
+	public String getTimestamp() {
+		return "2011-03-19";
+	}
 }

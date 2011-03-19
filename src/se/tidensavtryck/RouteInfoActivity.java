@@ -95,6 +95,9 @@ public class RouteInfoActivity extends ListActivity {
             	avatarResource = R.drawable.avatar_example;
             }
             avatar.setBackgroundResource(avatarResource);
+            
+            TextView timestamp = (TextView) convertView.findViewById(R.id.commentTimestamp);
+            timestamp.setText(comment.getTimestamp());
             return convertView;
         }
 
