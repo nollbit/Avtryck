@@ -16,6 +16,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -23,6 +24,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +41,8 @@ public class RouteActivity extends MapActivity {
 	private PlaceItemizedOverlay itemizedOverlay;
 	private MyLocationOverlay mMyLocationOverlay;
 
+	MapController mMc;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,8 +67,9 @@ public class RouteActivity extends MapActivity {
         mMapOverlays.add(itemizedOverlay);
         myLocationOverlay(mMapView);
 
-        final MapController mc = mMapView.getController();
+        mMc = mMapView.getController();
 
+        final MapController mc = mMc;
         // TODO: This must be refactored, cause it expect that the first overlay
         // is a PlaceItemizedOverlay which might not be true.
         if (mMapOverlays.size() > 0) {
@@ -72,6 +79,9 @@ public class RouteActivity extends MapActivity {
             mc.animateTo(point);
             mc.setZoom(14);
         }
+
+        onRotationChange(getResources().getConfiguration());
+        
     }
 
     @Override
@@ -124,6 +134,21 @@ public class RouteActivity extends MapActivity {
             PlaceAdapter placeAdapter =
                 new PlaceAdapter(this, route.getPlaces());
             mPlacesList.setAdapter(placeAdapter);
+
+            mPlacesList.setOnItemClickListener(new OnItemClickListener() {
+
+				@Override
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					OverlayItem item = itemizedOverlay.getItem(position);
+		            GeoPoint point = item.getPoint();
+
+		            mMc.animateTo(point);
+		            mMc.setZoom(14);
+						
+				}
+            	
+            });
         }
     }
 
@@ -188,15 +213,19 @@ public class RouteActivity extends MapActivity {
      */
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        if (newConfig.orientation == newConfig.ORIENTATION_LANDSCAPE) {
+        onRotationChange(newConfig);
+
+        super.onConfigurationChanged(newConfig);
+    }
+
+	private void onRotationChange(Configuration newConfig) {
+		if (newConfig.orientation == newConfig.ORIENTATION_LANDSCAPE) {
             Log.d("Route", "is landscape");
             mPlacesList.setVisibility(View.VISIBLE);
         } else {
             mPlacesList.setVisibility(View.GONE);
         }
-
-        super.onConfigurationChanged(newConfig);
-    }
+	}
 
     private class PlaceAdapter extends ArrayAdapter<Place> {
         private LayoutInflater mInflater;
