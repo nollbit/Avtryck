@@ -70,7 +70,7 @@ public class RouteActivity extends MapActivity {
             GeoPoint point = first.getCenter();
 
             mc.animateTo(point);
-            mc.setZoom(16);
+            mc.setZoom(14);
         }
     }
 

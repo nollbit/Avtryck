@@ -18,21 +18,29 @@
 		android:paddingRight="2pt" android:paddingBottom="4pt" android:text="Route description"></TextView>
 
 	<LinearLayout android:id="@+id/routeDurationLayout"
-		android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingLeft="2pt">
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:orientation="horizontal" android:paddingLeft="2pt">
 
-		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/routeDurationLabel" android:text="@string/duration"></TextView><TextView android:paddingBottom="4pt" android:paddingLeft="2pt"
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/routeDurationLabel"
+			android:text="@string/duration"></TextView>
+		<TextView android:paddingBottom="4pt" android:paddingLeft="2pt"
 			android:layout_height="wrap_content" android:id="@+id/routeDuration"
-			android:paddingRight="2pt" android:layout_width="wrap_content" android:text="duration"></TextView>
-	
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/routeDurationUnit" android:text="@string/duration_unit"></TextView>
-</LinearLayout>
+			android:paddingRight="2pt" android:layout_width="wrap_content"
+			android:text="duration"></TextView>
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/routeDurationUnit"
+			android:text="@string/duration_unit"></TextView>
+	</LinearLayout>
 
 	<ImageView android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:id="@+id/routeThumbnail"
-		android:paddingRight="8pt" android:paddingLeft="8pt"
-		android:layout_gravity="center_horizontal" android:paddingBottom="10pt"></ImageView>
+		android:layout_gravity="center_horizontal"></ImageView>
+		
 	<Button android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:id="@+id/button_route" android:text="@string/start_route" android:layout_marginTop="5pt"/>
+		android:layout_height="wrap_content" android:id="@+id/button_route"
+		android:text="@string/start_route" android:layout_marginTop="5pt" />
 
 
 
