@@ -2,22 +2,54 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  >
+ 
     <com.markupartist.android.widget.ActionBar
-		android:id="@+id/actionbar" style="@style/ActionBar" />
-
-    <ImageView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:id="@+id/recordThumbnail"
-		android:paddingRight="8pt" android:paddingLeft="8pt"
-		android:layout_gravity="center_horizontal" android:paddingBottom="10pt" />
-
-    <TextView android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="Route Title"
-		android:id="@+id/recordTitle" android:gravity="center_horizontal"
-		android:textSize="12pt" />
-
-	<TextView android:id="@+id/recordDescription"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:paddingTop="8pt" android:paddingLeft="2pt"
-		android:paddingRight="2pt" android:paddingBottom="4pt" android:text="Record description" />
+		android:id="@+id/actionbar"
+		style="@style/ActionBar" />
+ 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+		<LinearLayout
+		  android:layout_width="fill_parent"
+		  android:layout_height="fill_parent"
+		  android:orientation="vertical"
+		  >
+		  
+		  <LinearLayout
+	          android:layout_width="fill_parent"
+	          android:layout_height="fill_parent"
+	          android:background="@drawable/search_plate_global"
+		      >
+			  <ImageView
+			      android:layout_width="fill_parent"
+				  android:layout_height="wrap_content"
+				  android:id="@+id/recordThumbnail"
+				  android:layout_gravity="center_horizontal"
+				  android:padding="5pt"
+				  />
+            </LinearLayout>
+            <TextView
+                android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="Route Title"
+	            android:id="@+id/recordTitle"
+	            android:padding="5dip"
+	            android:textSize="12pt" />
+            <TextView
+                android:id="@+id/recordDescription"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+				android:paddingTop="8pt"
+				android:paddingBottom="4pt"
+				android:paddingLeft="5dip"
+				android:paddingRight="5dip"
+				android:text="Record description"
+				/>
+       </LinearLayout>
+	</ScrollView>
 </LinearLayout>
