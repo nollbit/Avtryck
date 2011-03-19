@@ -25,8 +25,8 @@ public class Comment {
 	
 	public static List<Comment> createDummyComments() {
 		List<Comment> comments = new ArrayList<Comment>();
-		comments.add(new Comment(new User(), "Bästa"));
-		comments.add(new Comment(new User(), "Lolcatz!"));
+		comments.add(new Comment(new User(), "Mycket bra!"));
+		comments.add(new Comment(new User(), "Lagom lång för barnen, dock närmare 70 minuter lång även utan barn."));
 		return comments;
 	}
 }
