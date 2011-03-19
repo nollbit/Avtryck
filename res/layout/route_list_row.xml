@@ -22,18 +22,18 @@
 
 		<TextView android:layout_height="wrap_content"
 			android:layout_width="wrap_content" android:text="Title" android:id="@+id/routeTitle"
-			android:textSize="10dp"></TextView>
+			android:textSize="18dp"></TextView>
 
 
 		<LinearLayout android:id="@+id/LinearLayout02"
 			android:layout_width="wrap_content" android:layout_height="wrap_content">
 			<TextView android:layout_height="wrap_content"
 				android:layout_width="wrap_content" android:text="Duration"
-				android:id="@+id/routeDuration" android:textSize="6dp"
+				android:id="@+id/routeDuration" android:textSize="12dp"
 				android:layout_weight="1"></TextView>
 			<TextView android:layout_height="wrap_content"
 				android:layout_width="wrap_content" android:text="@string/duration_unit"
-				android:id="@+id/routeDurationUnit" android:textSize="6dp"
+				android:id="@+id/routeDurationUnit" android:textSize="12dp"
 				android:layout_weight="1" android:paddingLeft="2dp"></TextView>
 		</LinearLayout>
 
