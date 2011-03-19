@@ -61,6 +61,10 @@ public class Route implements Parcelable{
 		return 54;
 	}
 
+	public int getLikes() {
+		return 42;
+	}
+	
 	@Override
 	public int describeContents() {
 		return 0;

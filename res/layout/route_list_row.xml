@@ -3,16 +3,16 @@
 	android:layout_width="fill_parent" android:layout_height="fill_parent">
 
 
-	<TextView android:layout_height="wrap_content"
-		android:layout_width="wrap_content" android:id="@+id/routeNumPlaces"
-		android:text="5" android:layout_alignParentRight="true" 
-		android:textColor="@color/number_of_places" android:textSize="15pt" android:paddingLeft="5pt" android:paddingRight="5pt"></TextView>
+	<ImageView android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:id="@+id/routeLikes"
+		android:layout_alignParentRight="true" 
+		android:paddingLeft="5pt" android:paddingRight="5pt"></ImageView>
 
 
 	<LinearLayout android:id="@+id/LinearLayout01"
 		android:layout_height="wrap_content" android:orientation="vertical"
 		android:layout_weight="1" android:layout_width="match_parent"
-		android:layout_toLeftOf="@+id/routeNumPlaces" android:paddingLeft="2pt">
+		android:layout_toLeftOf="@+id/routeLikes" android:paddingLeft="2pt">
 
 		<TextView android:layout_height="wrap_content"
 			android:layout_width="wrap_content" android:text="Title" android:id="@+id/routeTitle"
