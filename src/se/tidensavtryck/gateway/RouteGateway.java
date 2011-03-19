@@ -34,6 +34,16 @@ public class RouteGateway {
         route.setLikes(42);
         route.setDescription("Besök kulturhistoriska platser i Sundsvall. En guidad tur byggd på information hämtad från K-samsök.");
 
+        Route route2 = new Route();
+        route2.setTitle("I ringmurens skugga");
+        User user2 = new User();
+        user2.setUserName("jonas");
+        route2.setCreatedBy(user);
+        route2.setDurationInMinutes(78);
+        route2.setLikes(3);
+        route2.setDescription("Medeltid möter nutid i Visby. En guidad tur byggd på information hämtad från K-samsök.");
+
+        
         Place place1 = new Place();
         place1.setTitle("Runsten");
         place1.setDescription("Gunvid och Torgärd de lät resa sten efter Torsten, sin son...");
@@ -104,6 +114,7 @@ public class RouteGateway {
 
         route.setPlaces(places);
         routeList.add(route);
+        routeList.add(route2);
 
 		return routeList;
 	}
