@@ -26,6 +26,7 @@ public class RecordImageActivity extends Activity {
         initActionBar();
 
         WebView wv = (WebView) findViewById(R.id.recordImageWebView);
+        wv.setBackgroundColor(R.color.black);
         wv.setScrollbarFadingEnabled(true);
         wv.setInitialScale(100);
         wv.getSettings().setBuiltInZoomControls(true);
