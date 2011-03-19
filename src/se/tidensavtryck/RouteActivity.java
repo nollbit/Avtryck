@@ -129,11 +129,11 @@ public class RouteActivity extends MapActivity {
     }
 
     private Drawable createMarker(int index) {
-    	Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.marker);
+    	Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dot);
 
-    	int size = (index < 10 ? 24 : 20);
-    	int x = (index < 10 ? 24 : 21);
-    	int y = (index < 10 ? 29 : 26);
+    	int size = (index < 10 ? 27 : 24);
+    	int x = (index < 10 ? 19 : 13);
+    	int y = (index < 10 ? 74 : 72);
     	
     	// create a mutable bitmap with the same size as the background image
     	Bitmap bmOverlay = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), 
