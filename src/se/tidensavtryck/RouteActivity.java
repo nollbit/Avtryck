@@ -19,6 +19,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -38,6 +39,7 @@ public class RouteActivity extends MapActivity {
     List<Overlay> mMapOverlays;
     Route mRoute;
     ListView mPlacesList;
+	private PlaceItemizedOverlay itemizedOverlay;
 
     /** Called when the activity is first created. */
     @Override
@@ -53,6 +55,8 @@ public class RouteActivity extends MapActivity {
         
         mMapOverlays = mMapView.getOverlays();
 
+        itemizedOverlay = new PlaceItemizedOverlay(this, mMapView);
+        
         RouteGateway gw = new RouteGateway(getResources().getAssets());
         List<Route> routes = gw.list();
 
@@ -109,16 +113,15 @@ public class RouteActivity extends MapActivity {
      * @return An overlay.
      */
     private PlaceItemizedOverlay createPlaceOverlay(Place place, int index) {
-        Drawable drawable = createMarker(index);
-        PlaceItemizedOverlay itemizedOverlay = new PlaceItemizedOverlay(this, drawable, mMapView);
-
         GeoPoint point = new GeoPoint(
                 (int)(place.getGeoLocation().getLatitude()*1E6),
                 (int)(place.getGeoLocation().getLongitude()*1E6));
         OverlayItem overlayItem = new OverlayItem(point, place.getTitle(), 
                 place.getDescription());
-
-        itemizedOverlay.addOverlay(overlayItem);
+        
+        Drawable drawable = createMarker(index);
+        
+        itemizedOverlay.addOverlay(overlayItem, drawable);
 
         return itemizedOverlay;
     }
