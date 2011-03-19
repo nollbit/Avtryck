@@ -115,7 +115,7 @@ public class RouteActivity extends MapActivity {
         GeoPoint point = new GeoPoint(
                 (int)(place.getGeoLocation().getLatitude()*1E6),
                 (int)(place.getGeoLocation().getLongitude()*1E6));
-        OverlayItem overlayItem = new OverlayItem(point, "Runsten", 
+        OverlayItem overlayItem = new OverlayItem(point, place.getTitle(), 
                 place.getDescription());
 
         itemizedOverlay.addOverlay(overlayItem);
