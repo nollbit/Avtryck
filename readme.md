@@ -6,6 +6,14 @@ Ett bidrag till [Appening][appening]. Det finns även ett en tillhörande [webbd
 [appening]: http://www.appening.se
 [aweb]: https://github.com/nollbit/Avtryck-Web
 
+Skärmdumpar
+===========
+
+![Alt text](mmiphone/raw/master/captures/dumpar/7.png "Lista på vandringar")
+![Alt text](mmiphone/raw/master/captures/dumpar/6.png "Vandringsöversikt")
+![Alt text](mmiphone/raw/master/captures/dumpar/3.png "Vandringskarta")
+![Alt text](mmiphone/raw/master/captures/dumpar/8.png "Vandringskarta landskapsläge")
+
 Beroenden
 =========
  * [Map ballons][mb]
