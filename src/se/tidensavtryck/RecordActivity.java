@@ -39,9 +39,21 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
     private void initActionBar() {
         ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
         actionBar.setTitle(String.format("%1$d av %2$d", mRecordIndex+1, mPlace.getRecords().size()));
-        actionBar.setHomeAction(new ActionBar.IntentAction(
-                this, StartActivity.createIntent(this),
-                R.drawable.ic_actionbar_home_default));
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        actionBar.setHomeAction(new ActionBar.Action() {
+
+            @Override
+            public int getDrawable() {
+                return R.drawable.ic_actionbar_home_default;
+            }
+
+            @Override
+            public void performAction(View view) {
+                finish();
+            }
+            
+        });
     }
 
     private void showRecord() {
