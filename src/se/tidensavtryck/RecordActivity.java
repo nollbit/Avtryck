@@ -4,18 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-import se.tidensavtryck.gateway.RouteGateway;
 import se.tidensavtryck.model.Place;
 import se.tidensavtryck.model.Record;
-import se.tidensavtryck.model.Route;
 
 import com.google.android.imageloader.ImageLoader;
 import com.google.android.imageloader.ImageLoader.BindResult;
 
-import java.util.List;
-
 public class RecordActivity extends Activity implements ImageLoader.Callback {
-    private ImageView imageView;
+    private ImageView mImageView;
+    private Place mPlace;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +22,14 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
 
 //        initActionBar();
 
-        RouteGateway gw = new RouteGateway(getResources().getAssets());
-        List<Route> routes = gw.list();
+        mPlace = (Place) getIntent().getParcelableExtra("place");
+        Record record = mPlace.getRecords().get(0);
 
-        Route route = routes.get(0);
-        Place place = route.getPlaces().get(0);
-        Record record = place.getRecords().get(0);
+        mImageView = (ImageView) findViewById(R.id.recordThumbnail);
 
-        imageView = (ImageView) findViewById(R.id.recordThumbnail);
-
-        BindResult result = ImageLoader.get(this).bind(imageView, record.getThumbnailURL(), this);
+        BindResult result = ImageLoader.get(this).bind(mImageView, record.getThumbnailURL(), this);
 	    if(result == ImageLoader.BindResult.LOADING) {
-            imageView.setVisibility(ImageView.GONE);
+            mImageView.setVisibility(ImageView.GONE);
         }
 	}
 	
