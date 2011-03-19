@@ -79,6 +79,9 @@ public class RouteActivity extends MapActivity {
             mc.animateTo(point);
             mc.setZoom(14);
         }
+
+        onRotationChange(getResources().getConfiguration());
+        
     }
 
     @Override
@@ -210,15 +213,19 @@ public class RouteActivity extends MapActivity {
      */
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        if (newConfig.orientation == newConfig.ORIENTATION_LANDSCAPE) {
+        onRotationChange(newConfig);
+
+        super.onConfigurationChanged(newConfig);
+    }
+
+	private void onRotationChange(Configuration newConfig) {
+		if (newConfig.orientation == newConfig.ORIENTATION_LANDSCAPE) {
             Log.d("Route", "is landscape");
             mPlacesList.setVisibility(View.VISIBLE);
         } else {
             mPlacesList.setVisibility(View.GONE);
         }
-
-        super.onConfigurationChanged(newConfig);
-    }
+	}
 
     private class PlaceAdapter extends ArrayAdapter<Place> {
         private LayoutInflater mInflater;
