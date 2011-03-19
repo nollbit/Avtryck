@@ -13,13 +13,11 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.imageloader.ImageLoader;
 import com.google.android.imageloader.ImageLoader.BindResult;
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.actionbar.R;
-
 
 public class RecordActivity extends Activity implements ImageLoader.Callback {
     private Place mPlace;
@@ -32,7 +30,7 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	
+
         setContentView(R.layout.record);
 
         mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -90,6 +88,7 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
             }
 
         });
+
         return actionBar;
     }
 
@@ -99,6 +98,11 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
 
         TextView description = (TextView) findViewById(R.id.recordDescription);
         description.setText(record.getDescription());
+
+        if (mActionBar.getActionCount() > 2) {
+            mActionBar.removeActionAt(1);
+        }
+        mActionBar.addAction(new ActionBar.IntentAction(this, createShareIntent(record), R.drawable.ic_actionbar_share));
     }
 
     @Override
@@ -109,6 +113,18 @@ public class RecordActivity extends Activity implements ImageLoader.Callback {
     @Override
     public void onImageError(ImageView imageView, String s, Throwable throwable) {
         Log.w("Avtryck", throwable.toString());
+    }
+
+    private Intent createShareIntent(Record record) {
+        final Intent intent = new Intent(Intent.ACTION_SEND);
+
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT,
+                String.format("%s", record.getTitle()));
+        intent.putExtra(Intent.EXTRA_TEXT,
+                String.format("%s #appening via Avtryck.", record.getDescription()));
+
+        return intent;
     }
 
     private class ThumbnailOnClickListener implements OnClickListener {
