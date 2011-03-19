@@ -22,7 +22,7 @@ Stort tack till folket från [Riksantikvarieämbetet][raa] för information runt
 
 Tack till [Olof Brickarp][coolof] för [ikonerna][cooloficon]. 
 
-[Thumbsup-ikonen][thumbsup] är från [Icon Finder][iconfinder]
+[Thumbsup-ikonen][thumbsup] är från [Icon Finder][iconfinder].
 
 [ksamsok]: http://www.ksamsok.se/
 [raa]: http://www.raa.se/
