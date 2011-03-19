@@ -25,7 +25,7 @@ public class RouteInfoActivity extends Activity {
 
         initActionBar();
         
-        Route route = (Route) getIntent().getParcelableExtra("route");
+        final Route route = (Route) getIntent().getParcelableExtra("route");
 
         TextView title = (TextView) findViewById(R.id.routeInfoTitle);
         title.setText(route.getTitle());
@@ -45,6 +45,7 @@ public class RouteInfoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(RouteInfoActivity.this, RouteActivity.class);
+                i.putExtra("route", route);
                 startActivity(i);
             }
         });
