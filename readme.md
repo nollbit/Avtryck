@@ -1,17 +1,31 @@
 Avtryck
 =======
 
-Vinnande bidrag kategori "Bästa Tjänsteidé" i [Appening][appening] 2011. Det finns även ett en tillhörande [webbdel][aweb].
+Avtryck är en tjänst för mobila presentationer av rika datakällor.
+
+ * Vår Android-applikation tar dig på guidade rundturer genom ett rikt kulturhistoriskt material. 
+ * Med ett enkelt [webbgränssnitt][aweb] kan du skapa och lägga till egna turer.
 
 [appening]: http://www.appening.se
 [aweb]: https://github.com/nollbit/Avtryck-Web
 
 Priser
 ======
+
+Vinnande bidrag i 24-timmars tävlingen [Appening][appening] 2011. 
+
  * 1:a pris "Bästa Tjänsteidé" från [Sundsvall 42][s42]
  * Pris från [Riksantikvarieämbetet][raa] för [K-Samsök][ksamsok]-integrationen
 
 [s42]: http://www.sundsvall42.se/
+
+Presentation
+===========
+
+Tävlingen finns på [bambuser][bambuser]. Avtryck presenteras mellan 3.40 och 13:40 på videon med tävlingsbidrag. Se även våra [slides][slides]. 
+
+[bambuser]: http://bambuser.com/node/1590759
+[slides]: Avtryck/appening-slides.pdf_
 
 Skärmdumpar
 ===========
@@ -21,12 +35,6 @@ Skärmdumpar
 ![Alt text](Avtryck/raw/master/captures/3.png "Vandringskarta")
 ![Alt text](Avtryck/raw/master/captures/8.png "Vandringskarta landskapsläge")
 
-Videopresentation
-===========
-
-Inspelning på [bambuser][bambuser]. Avtryck presenteras mellan 3.40 och 13:40 på videon. 
-
-[bambuser]: http://bambuser.com/node/1590759
 
 Beroenden
 =========
