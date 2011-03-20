@@ -14,6 +14,13 @@ Skärmdumpar
 ![Alt text](Avtryck/raw/master/captures/3.png "Vandringskarta")
 ![Alt text](Avtryck/raw/master/captures/8.png "Vandringskarta landskapsläge")
 
+Videopresentation
+===========
+
+Inspelning på [bambuser][bambuser]. Avtryck presenteras mellan 3.40 och 13:40 på videon. 
+
+[bambuser]: http://bambuser.com/node/1590759
+
 Beroenden
 =========
  * [Map ballons][mb]
