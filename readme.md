@@ -22,10 +22,11 @@ Vinnande bidrag i 24-timmars tävlingen [Appening][appening] 2011.
 Presentation
 ===========
 
-Tävlingen finns på [bambuser][bambuser]. Avtryck presenteras mellan 3.40 och 13:40 på videon med tävlingsbidrag. Se även våra [slides][slides]. 
+Tävlingen finns på [bambuser][bambuser]. Avtryck presenteras mellan 3.40 och 13:40 på videon med tävlingsbidrag. 
+Se även våra [slides][slides]. 
 
 [bambuser]: http://bambuser.com/node/1590759
-[slides]: Avtryck/appening-slides.pdf_
+[slides]: https://github.com/nollbit/Avtryck/blob/master/appening-slides.pdf_
 
 Skärmdumpar
 ===========
