@@ -16,7 +16,7 @@ Priser
 Skärmdumpar
 ===========
 
-![Alt text](Avtryck/raw/master/captures/7.png "Lista på vandringar")
+![Alt text](raw/master/captures/7.png "Lista på vandringar")
 ![Alt text](Avtryck/raw/master/captures/6.png "Vandringsöversikt")
 ![Alt text](Avtryck/raw/master/captures/3.png "Vandringskarta")
 ![Alt text](Avtryck/raw/master/captures/8.png "Vandringskarta landskapsläge")
