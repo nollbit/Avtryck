@@ -1,10 +1,15 @@
 Avtryck
 =======
 
-Ett bidrag till [Appening][appening]. Det finns även ett en tillhörande [webbdel][aweb].
+Vinnande bidrag kategori "Bästa Tjänsteidé" i [Appening][appening] 2011. Det finns även ett en tillhörande [webbdel][aweb].
 
 [appening]: http://www.appening.se
 [aweb]: https://github.com/nollbit/Avtryck-Web
+
+Priser
+======
+ * 1:a pris "Bästa Tjänsteidé" från Sundsvall 42
+ * Pris från [Riksantikvarieämbetet][raa] för [K-Samsök][ksamsok]-integrationen
 
 Skärmdumpar
 ===========
