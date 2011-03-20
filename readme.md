@@ -8,8 +8,10 @@ Vinnande bidrag kategori "Bästa Tjänsteidé" i [Appening][appening] 2011. Det 
 
 Priser
 ======
- * 1:a pris "Bästa Tjänsteidé" från Sundsvall 42
+ * 1:a pris "Bästa Tjänsteidé" från [Sundsvall 42][s42]
  * Pris från [Riksantikvarieämbetet][raa] för [K-Samsök][ksamsok]-integrationen
+
+[s42]: http://www.sundsvall42.se/
 
 Skärmdumpar
 ===========
